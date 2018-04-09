@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>This will generate a Cell with Controller, Data Source and Model</string>
+	<key>Summary</key>
+	<string>This will generate a Cell with Controller, Data Source and Model</string>
+	<key>SortOrder</key>
+	<string>30</string>
+	<key>DefaultCompletionName</key>
+	<string>File</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.swift</string>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>The name of the cell to create</string>
+			<key>Identifier</key>
+			<string>cellName</string>
+			<key>Name</key>
+			<string>Cell Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___Cell</string>
+			<key>Description</key>
+			<string>The cell&apos;s name</string>
+			<key>Identifier</key>
+			<string>cellCellName</string>
+			<key>Name</key>
+			<string>Cell Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___Cell</string>
+			<key>Description</key>
+			<string>The nib&apos;s name</string>
+			<key>Identifier</key>
+			<string>cellNibName</string>
+			<key>Name</key>
+			<string>Nib Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___CellController</string>
+			<key>Description</key>
+			<string>The controller&apos;s name</string>
+			<key>Identifier</key>
+			<string>cellControllerName</string>
+			<key>Name</key>
+			<string>Controller Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___CellDataSource</string>
+			<key>Description</key>
+			<string>The data source&apos;s name</string>
+			<key>Identifier</key>
+			<string>dataSourceName</string>
+			<key>Name</key>
+			<string>Data Source Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_cellName:identifier___CellModel</string>
+			<key>Description</key>
+			<string>The model&apos;s name</string>
+			<key>Identifier</key>
+			<string>modelName</string>
+			<key>Name</key>
+			<string>Model Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>The type of the entity</string>
+			<key>Identifier</key>
+			<string>entityType</string>
+			<key>Name</key>
+			<string>Entity Type:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityType:rfc1034identifier___</string>
+			<key>Identifier</key>
+			<string>ENTITYTYPE</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>The name of the entity</string>
+			<key>Identifier</key>
+			<string>entityName</string>
+			<key>Name</key>
+			<string>Entity Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:rfc1034identifier___</string>
+			<key>Identifier</key>
+			<string>ENTITYNAME</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>Selection: selection, FormEvent: formEvent</string>
+			<key>Description</key>
+			<string>An example of how to use the Entity fields</string>
+			<key>Identifier</key>
+			<string>entityExample</string>
+			<key>Name</key>
+			<string>Example:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+</dict>
+</plist>
