@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>This will generate a Section with Controller and Model</string>
+	<key>Summary</key>
+	<string>This will generate a Section with Controller and Model</string>
+	<key>SortOrder</key>
+	<string>30</string>
+	<key>DefaultCompletionName</key>
+	<string>File</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.swift</string>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>The name of the section to create</string>
+			<key>Identifier</key>
+			<string>sectionName</string>
+			<key>Name</key>
+			<string>Section Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sectionName:identifier___</string>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sectionName:identifier___Section</string>
+			<key>Description</key>
+			<string>The cell&apos;s name</string>
+			<key>Identifier</key>
+			<string>sectionSectionName</string>
+			<key>Name</key>
+			<string>Section Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sectionName:identifier___Section</string>
+			<key>Description</key>
+			<string>The section nib&apos;s name</string>
+			<key>Identifier</key>
+			<string>sectionNibName</string>
+			<key>Name</key>
+			<string>Nib Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sectionName:identifier___SectionController</string>
+			<key>Description</key>
+			<string>The controller&apos;s name</string>
+			<key>Identifier</key>
+			<string>sectionControllerName</string>
+			<key>Name</key>
+			<string>Controller Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_sectionName:identifier___SectionModel</string>
+			<key>Description</key>
+			<string>The model&apos;s name</string>
+			<key>Identifier</key>
+			<string>modelName</string>
+			<key>Name</key>
+			<string>Model Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>The type of the entity</string>
+			<key>Identifier</key>
+			<string>entityType</string>
+			<key>Name</key>
+			<string>Entity Type:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityType:rfc1034identifier___</string>
+			<key>Identifier</key>
+			<string>ENTITYTYPE</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>The name of the entity</string>
+			<key>Identifier</key>
+			<string>entityName</string>
+			<key>Name</key>
+			<string>Entity Name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:rfc1034identifier___</string>
+			<key>Identifier</key>
+			<string>ENTITYNAME</string>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>Selection: selection, FormEvent: formEvent</string>
+			<key>Description</key>
+			<string>An example of how to use the Entity fields</string>
+			<key>Identifier</key>
+			<string>entityExample</string>
+			<key>Name</key>
+			<string>Example:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+</dict>
+</plist>
