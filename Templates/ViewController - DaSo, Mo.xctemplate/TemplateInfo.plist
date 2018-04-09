@@ -130,7 +130,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>Selection: selection, FormEvent: formEvent</string>
+			<string>Person: person, Animal: animal</string>
 			<key>Description</key>
 			<string>An example of how to use the Entity fields</string>
 			<key>Identifier</key>
