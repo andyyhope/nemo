@@ -1,0 +1,47 @@
+{
+	"type": "main",
+	"content": [
+		{
+			"type": "text",
+			"background": "blue",
+			"text": "a",
+			"navigation": {
+				"destination": "apple"
+			},
+		},
+		{
+			"type": "carousel",
+			"background": "red",
+			"items": [
+				{
+					"text": "bongo",
+					"background": "dark",
+				},
+				{
+					"text": "banjo",
+					"background": "default",
+				},
+				{
+					"text": "bagpipes",
+					"background": "light",
+				},
+			]
+		},
+		{
+			"type": "detail",
+			"background": "green",
+			"heading-text": "Breaking News",
+			"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+			"navigation": {
+				"destination": "carrot"
+			},
+		},
+		{
+			"type": "image",
+			"image": "stock-1",
+			"navigation": {
+				"destination": "orange"
+			},
+		},
+	],
+}
