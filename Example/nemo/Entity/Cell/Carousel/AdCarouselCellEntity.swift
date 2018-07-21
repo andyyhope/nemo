@@ -7,27 +7,25 @@
 //
 
 import Foundation
-import UIKit
 
 struct AdCarouselCellEntity {
     let company: String
     let description: String
-    let image: UIImage
+    let imageName: String
     let url: URL
     
-    init?(json: [String: Any]) {
+    init?(json: JSON) {
         guard
             let company = json["company"] as? String,
             let description = json["description"] as? String,
             let urlString = json["url"] as? String,
             let url = URL(string: urlString),
-            let imageName = json["image"] as? String,
-            let image = UIImage(named: imageName)
+            let imageName = json["image"] as? String
             else { return nil }
         
         self.company = company
         self.description = description
         self.url = url
-        self.image = image
+        self.imageName = imageName
     }
 }

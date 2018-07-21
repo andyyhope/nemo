@@ -7,14 +7,13 @@
 //
 
 import Foundation
-import UIKit
 
 struct DetailTextCellEntity {
     let detail: String
     let heading: String
-    let backgroundColor: UIColor
+    let backgroundColor: String
     
-    init?(json: [String: Any]) {
+    init?(json: JSON) {
         guard
             let heading = json["heading-text"] as? String,
             let detail = json["detail-text"] as? String,
@@ -23,6 +22,6 @@ struct DetailTextCellEntity {
         
         self.heading = heading
         self.detail = detail
-        self.backgroundColor = ColorFactory.color(forColor: backgroundColor)
+        self.backgroundColor = backgroundColor
     }
 }

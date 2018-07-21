@@ -1,5 +1,5 @@
 //
-//  IconCarouselCellEntity.swift
+//  TextCellEntity.swift
 //  nemo
 //
 //  Created by Andyy Hope on 21/7/18.
@@ -7,20 +7,18 @@
 //
 
 import Foundation
-import UIKit
 
-struct IconCarouselCellEntity {
+struct TextCellEntity {
+    let backgroundColor: String
     let text: String
-    let icon: UIImage
     
-    init?(json: [String: Any]) {
+    init?(json: JSON) {
         guard
             let text = json["text"] as? String,
-            let iconName = json["icon"] as? String,
-            let icon = UIImage(named: iconName)
+            let backgroundColor = json["backgroundColor"] as? String
             else { return nil }
         
         self.text = text
-        self.icon = icon
+        self.backgroundColor = backgroundColor
     }
 }

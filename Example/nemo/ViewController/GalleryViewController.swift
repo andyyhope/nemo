@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class GalleryViewController: UIViewController {
     
     var tableView = UITableView()
     
@@ -17,8 +17,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
+        prepareTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,11 +36,16 @@ class MainViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
+    
     // MARK: - Preparation
     
+    private func prepareTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
 }
 
-extension MainViewController: UITableViewDataSource {
+extension GalleryViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 0
@@ -56,6 +60,32 @@ extension MainViewController: UITableViewDataSource {
     }
 }
 
-extension MainViewController: UITableViewDelegate {
+extension GalleryViewController: UITableViewDelegate {
+    
+    // MARK: Height Properties
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    // MARK: Section Views
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
     
 }

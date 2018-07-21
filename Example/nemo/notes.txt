@@ -1,0 +1,5 @@
+- Add completion closures to requesters
+- add code gen for protocols
+- Add initial `state` for VC Model codegen
+- Comment out ViewController codegen optional functions
+- Added initial `cellControllers` `sectionControllers` to VC Model codegen

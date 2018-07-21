@@ -1,5 +1,5 @@
 //
-//  CarouselCellEntity.swift
+//  MainEntity.swift
 //  nemo
 //
 //  Created by Andyy Hope on 21/7/18.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct MainEntity {
+    
+}

@@ -7,20 +7,18 @@
 //
 
 import Foundation
-import UIKit
 
 struct ImageCarouselCellEntity {
     let caption: String
-    let image: UIImage
+    let imageName: String
     
-    init?(json: [String: Any]) {
+    init?(json: JSON) {
         guard
             let caption = json["caption"] as? String,
-            let imageName = json["image"] as? String,
-            let image = UIImage(named: imageName)
+            let imageName = json["image"] as? String
             else { return nil }
         
         self.caption = caption
-        self.image = image
+        self.imageName = imageName
     }
 }

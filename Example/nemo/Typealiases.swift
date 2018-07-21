@@ -9,3 +9,4 @@
 import Foundation
 
 typealias CompletionClosure = () -> Void
+typealias JSON = [String: Any]
