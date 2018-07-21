@@ -54,7 +54,7 @@ class ViewControllerModel {
             return "Error"
         default:
             if let entity = entity {
-                return "\(entity.company)\n\(entity.location)"
+                return "\(entity.name)\n\(entity.location)"
             } else {
                 return "Loading..."
             }

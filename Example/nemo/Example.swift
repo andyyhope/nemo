@@ -11,8 +11,8 @@ import Foundation
 struct Example {
     
     static var data: Company {
-        return Company(
-            company: "Punters",
+        return .init(
+            name: "Punters",
             location: "Australia",
             color: .green,
             departments: departments)

@@ -3,8 +3,8 @@
 	"content": [
 		{
 			"type": "text",
-			"background": "blue",
-			"text": "a",
+			"backgroundColor": "red",
+			"text": "alpha",
 			"navigation": {
 				"destination": "apple"
 			},
@@ -29,7 +29,7 @@
 		},
 		{
 			"type": "detail",
-			"background": "green",
+			"backgroundColor": "green",
 			"heading-text": "Breaking News",
 			"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 			"navigation": {
@@ -39,6 +39,7 @@
 		{
 			"type": "image",
 			"image": "stock-1",
+			"caption": "This is a photo",
 			"navigation": {
 				"destination": "orange"
 			},
