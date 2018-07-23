@@ -8,11 +8,17 @@
 
 import UIKit
 
-class TextCell: UITableViewCell {
+class TextCell: UITableViewCell, NibLoadable {
 
     @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+}
+
+extension TextCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 80
     }
 }

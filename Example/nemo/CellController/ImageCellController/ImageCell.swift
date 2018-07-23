@@ -8,11 +8,17 @@
 
 import UIKit
 
-class ImageCell: UITableViewCell {
+class ImageCell: UITableViewCell, NibLoadable {
 
     @IBOutlet weak var coverImageView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+}
+
+extension ImageCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 100
     }
 }

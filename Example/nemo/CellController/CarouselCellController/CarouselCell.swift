@@ -8,11 +8,17 @@
 
 import UIKit
 
-class CarouselCell: UITableViewCell {
+class CarouselCell: UITableViewCell, NibLoadable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+}
+
+extension CarouselCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 100
     }
 }

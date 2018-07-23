@@ -11,6 +11,19 @@ import UIKit
 extension MainViewDataSource {
     enum Section: Int {
         case main
+        
+        static let count: Int = 1
+    }
+    
+    enum SectionController {
+        case main([CellController])
+    }
+    
+    enum CellController {
+        case text(TextCellController)
+        case detail(DetailCellController)
+        case image(ImageCellController)
+        case carousel(CarouselCellController)
     }
 }
 
@@ -51,7 +64,8 @@ final class MainViewDataSource {
     }
     
     func cellController(for indexPath: IndexPath) -> CellController {
-        return sectionController(for: indexPath).cellControllers[indexPath.row]
+        return cellControllers[0]
+//        return sectionController(for: indexPath).cellControllers[indexPath.row]
     }
 }
 

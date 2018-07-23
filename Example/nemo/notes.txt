@@ -3,3 +3,10 @@
 - Add initial `state` for VC Model codegen
 - Comment out ViewController codegen optional functions
 - Added initial `cellControllers` `sectionControllers` to VC Model codegen
+
+- Cell- Co-Mo 
+  - self.state not initialised
+  - DaSo `model` not init'd
+
+- Cell - DaSoMo
+  - Remove entity from initializer/remove entity from computed property. Needs to match with other DaSoMo

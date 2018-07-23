@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IconCarouselCell: UICollectionViewCell {
+class IconCarouselCell: UICollectionViewCell, NibLoadable {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     
@@ -16,4 +16,10 @@ class IconCarouselCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
+}
+
+extension IconCarouselCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 80
+    }
 }

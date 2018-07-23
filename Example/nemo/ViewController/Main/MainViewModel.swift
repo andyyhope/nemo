@@ -23,9 +23,7 @@ final class MainViewModel {
         self.state = .loading
     }
 }
-
-extension MainViewModel: ViewStateManageable {
-    enum ViewState {
-        case loading, completed, failed
-    }
-}
+//
+//extension MainViewModel:  {
+//    typealias ViewState = ViewState
+//}

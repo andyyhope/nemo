@@ -10,4 +10,10 @@ import Foundation
 
 protocol ViewStateManageable {
     associatedtype ViewState
+    
+    var state: ViewState { get set }
+}
+
+enum ViewState {
+    case loading, completed, failed
 }

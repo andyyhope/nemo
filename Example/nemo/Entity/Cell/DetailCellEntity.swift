@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct DetailTextCellEntity {
+struct DetailCellEntity {
     let detail: String
     let heading: String
     let backgroundColor: String

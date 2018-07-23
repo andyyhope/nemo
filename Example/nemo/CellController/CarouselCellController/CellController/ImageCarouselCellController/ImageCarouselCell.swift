@@ -8,11 +8,17 @@
 
 import UIKit
 
-class ImageCarouselCell: UICollectionViewCell {
+class ImageCarouselCell: UICollectionViewCell, NibLoadable {
 
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+}
+
+extension ImageCarouselCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 80
     }
 }

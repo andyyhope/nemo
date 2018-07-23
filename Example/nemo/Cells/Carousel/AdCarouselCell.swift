@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdCarouselCell: UICollectionViewCell {
+class AdCarouselCell: UICollectionViewCell, NibLoadable {
 
     @IBOutlet weak var adImageView: UIImageView!
     @IBOutlet weak var label: UILabel!
@@ -18,4 +18,10 @@ class AdCarouselCell: UICollectionViewCell {
         // Initialization code
     }
 
+}
+
+extension AdCarouselCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 80
+    }
 }

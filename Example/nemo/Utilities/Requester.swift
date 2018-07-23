@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let delay: UInt32 = 3
+
 enum Request: String {
     case main
     
@@ -19,14 +21,11 @@ enum Request: String {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let serialized = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
             if let json = serialized as? JSON {
+                sleep(delay)
                 return json
             }
-            else {
-                fatalError()
-            }
+            else { fatalError() }
         }
-        catch {
-            fatalError()
-        }
+        catch { fatalError() }
     }
 }

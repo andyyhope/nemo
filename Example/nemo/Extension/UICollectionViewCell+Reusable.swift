@@ -7,3 +7,6 @@
 //
 
 import Foundation
+import UIKit
+
+extension UICollectionViewCell: Reusable { }

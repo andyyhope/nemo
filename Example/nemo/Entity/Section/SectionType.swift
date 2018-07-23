@@ -1,5 +1,5 @@
 //
-//  HeightDefaultable.swift
+//  SectionType.swift
 //  nemo
 //
 //  Created by Andyy Hope on 22/7/18.
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import UIKit
 
-protocol HeightDefaultable {
-    static var defaultHeight: CGFloat { get }
+enum SectionType {
+    case main([CellType])
 }

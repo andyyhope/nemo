@@ -8,12 +8,18 @@
 
 import UIKit
 
-class DetailCell: UITableViewCell {
+class DetailCell: UITableViewCell, NibLoadable {
 
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+}
+
+extension DetailCell: HeightDefaultable {
+    static var defaultHeight: CGFloat {
+        return 100
     }
 }

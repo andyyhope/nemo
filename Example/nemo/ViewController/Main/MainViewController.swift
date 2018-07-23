@@ -34,8 +34,9 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         prepareTableViewBindings()
-        dataSource.request(.initial) {
-            
+        
+        dataSource.request(.initial) { [weak self] in
+            self?.tableView.reloadData()
         }
     }
     
@@ -71,14 +72,14 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Data
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return DataSource.Section.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
         
 //        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
+//        case .main:
 //            return <#Number of rows in section#>
 //        }
     }
@@ -102,7 +103,7 @@ extension MainViewController: UITableViewDataSource {
         return UITableViewCell()
         
 //        switch dataSource.section(forIndex: indexPath.section) {
-//        case .<#section#>:
+//        case .main:
 //            let cell: <#Cell#> = tableView.dequeueReusableCell(for: indexPath)
 //            dataSource.cellController(for: indexPath).prepareCell(cell)
 //
