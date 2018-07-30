@@ -1,6 +1,6 @@
 {
 	"type": "main",
-	"content": [
+	"entities": [
 		{
 			"type": "text",
 			"backgroundColor": "red",

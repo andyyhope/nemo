@@ -14,33 +14,16 @@ enum CellController {
     case image(ImageCellController)
     case carousel(CarouselCellController)
     
-    init?(json: JSON) {
-        guard
-            let type = json["type"] as? String
-            else { assertionFailure("Invalid CellController 'type' key passed"); return nil }
-        
-        switch type {
-        case "text":
-            if let entity = TextCellEntity(json: json) {
-                self = .text(.init(entity: entity))
-            }
-        case "detail":
-            if let entity = DetailCellEntity(json: json) {
-                self = .detail(.init(entity: entity))
-            }
-        case "image":
-            if let entity = ImageCellEntity(json: json) {
-                self = .image(.init(entity: entity))
-            }
-        case "carousel":
-            if let entity = CarouselCellEntity(json: json) {
-                self = .carousel(.init(entity: entity))
-            }
-        default:
-            assertionFailure("Invalid CellController identifier passed: \(type)")
-            return nil
+    init(cellEntity: CellEntity) {
+        switch cellEntity {
+        case .text(let entity):
+            self = .text(.init(entity: entity))
+        case .detail(let entity):
+            self = .detail(.init(entity: entity))
+        case .image(let entity):
+            self = .image(.init(entity: entity))
+        case .carousel(let entity):
+            self = .carousel(.init(entity: entity))
         }
-        assertionFailure("Couldn't parse CellController with type: \(type)")
-        return nil
     }
 }
