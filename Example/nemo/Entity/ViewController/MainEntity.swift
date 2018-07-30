@@ -10,4 +10,7 @@ import Foundation
 
 struct MainEntity {
     
+    init?(json: JSON) {
+        
+    }
 }

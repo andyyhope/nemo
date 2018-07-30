@@ -31,7 +31,7 @@ extension UITableView {
     
     // MARK: - Dequeuing
     
-    func dequeue<T: UITableViewCell>(for indexPath: IndexPath) -> T {
+    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath) -> T {
         if let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T {
             return cell
         }
@@ -40,7 +40,7 @@ extension UITableView {
         }
     }
     
-    func dequeue<T: UITableViewHeaderFooterView>() -> T? {
+    func dequeueReusableView<T: UITableViewHeaderFooterView>() -> T? {
         if let view = dequeueReusableHeaderFooterView(withIdentifier: T.reuseIdentifier) as? T {
             return view
         }

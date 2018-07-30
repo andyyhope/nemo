@@ -32,7 +32,7 @@ extension UICollectionView {
     
     // MARK: - Dequeuing
     
-    func dequeue<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
+    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T {
         if let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T {
             return cell
         }
@@ -41,7 +41,7 @@ extension UICollectionView {
         }
     }
     
-    func dequeue<T: UICollectionViewCell>(elementKind: String, for indexPath: IndexPath) -> T {
+    func dequeueReusableView<T: UICollectionViewCell>(elementKind: String, for indexPath: IndexPath) -> T {
         if let view = dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T {
             return view
         }

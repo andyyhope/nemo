@@ -1,5 +1,5 @@
 //
-//  State.swift
+//  Typealiases.swift
 //  nemo
 //
 //  Created by Andyy Hope on 3/4/18.
@@ -8,8 +8,5 @@
 
 import Foundation
 
-enum State {
-    case loading
-    case completed
-    case failed
-}
+typealias CompletionClosure = (State) -> Void
+typealias JSON = [String: Any]

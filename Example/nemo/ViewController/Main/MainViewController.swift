@@ -14,7 +14,7 @@ extension MainViewController {
     typealias Model = MainViewModel
 }
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, ErrorPresenting {
     
     // MARK: - Properties
     
@@ -33,10 +33,17 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        prepareTableViewBindings()
+        prepareTableView()
         
-        dataSource.request(.initial) { [weak self] in
-            self?.tableView.reloadData()
+        dataSource.request(.initial) { [weak self] result in
+            switch result {
+            case .loading:
+                break
+            case .completed:
+                self?.tableView.reloadData()
+            case .failed(let failure):
+                self?.presentError(withMessage: failure.description)
+            }
         }
     }
     
@@ -59,9 +66,16 @@ final class MainViewController: UIViewController {
     
     // MARK: - Preparation
     
-    private func prepareTableViewBindings() {
+    private func prepareTableView() {
+        view = tableView
+
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(TextCell.self)
+        tableView.register(DetailCell.self)
+        tableView.register(ImageCell.self)
+        tableView.register(CarouselCell.self)
     }
 }
 
@@ -72,16 +86,16 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Data
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return DataSource.Section.count
+        return DataSource.SectionController.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .main:
-//            return <#Number of rows in section#>
-//        }
+        switch dataSource.sectionController(forIndex: section) {
+        case .content(let cellControllers):
+            return cellControllers.count
+        case .footer(let cellControllers):
+            return cellControllers.count
+        }
     }
     
     
@@ -100,15 +114,30 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Cells
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-        
-//        switch dataSource.section(forIndex: indexPath.section) {
-//        case .main:
-//            let cell: <#Cell#> = tableView.dequeueReusableCell(for: indexPath)
-//            dataSource.cellController(for: indexPath).prepareCell(cell)
-//
-//            return cell
-//        }
+        switch dataSource.cellController(for: indexPath) {
+        case .text(let cellController):
+            let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        case .detail(let cellController):
+            let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        case .image(let cellController):
+            let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        case .carousel(let cellController):
+            let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        default:
+            fatalError("Invalid Cell passed into: \(String(describing:self))")
+        }
     }
 }
 
@@ -119,16 +148,20 @@ extension MainViewController: UITableViewDelegate {
     // MARK: Height
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 0
-        
-//        switch dataSource.section(forIndex: indexPath.section) {
-//        case .<#section#>:
-//            return <#Row Height#>
-//        }
+        switch dataSource.cellController(for: indexPath) {
+        case .text:
+            return TextCell.defaultHeight
+        case .detail:
+            return DetailCell.defaultHeight
+        case .image:
+            return ImageCell.defaultHeight
+        case .carousel:
+            return CarouselCell.defaultHeight
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return .leastNormalMagnitude
         
 //        switch dataSource.section(forIndex: section) {
 //        case .<#section#>:
@@ -137,7 +170,7 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return .leastNormalMagnitude
         
 //        switch dataSource.section(forIndex: section) {
 //        case .<#section#>:
@@ -170,9 +203,20 @@ extension MainViewController: UITableViewDelegate {
     // MARK: Selection
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch dataSource.section(forIndex: indexPath.section) {
-//        case .<#section#>:
-//            break
+//        switch dataSource.cellController(for: indexPath) {
+//        case .text(let cellController):
+//            
+//        case .detail(let cellController):
+//            if let destination = cellController.destination {
+//                
+//            }
+//        case .image(let cellController):
+//            if let destination = cellController.destination {
+//                
+//            }
+//
+//        default:
+//            return
 //        }
     }
 }

@@ -9,21 +9,22 @@
 import UIKit
 
 extension MainViewDataSource {
-    enum Section: Int {
-        case main
-        
-        static let count: Int = 1
-    }
+    
     
     enum SectionController {
-        case main([CellController])
-    }
-    
-    enum CellController {
-        case text(TextCellController)
-        case detail(DetailCellController)
-        case image(ImageCellController)
-        case carousel(CarouselCellController)
+        case content([CellController])
+        case footer([CellController])
+        
+        static let count: Int = 2
+        
+        var index: Int {
+            switch self {
+            case .content:
+                return 0
+            case .footer:
+                return 1
+            }
+        }
     }
 }
 
@@ -31,7 +32,7 @@ final class MainViewDataSource {
     
     // MARK: - Properties
     
-    let entity: MainEntity?
+    var entity: MainEntity?
     var state: State
     var model: MainViewModel
     var cellControllers: [CellController]
@@ -50,22 +51,17 @@ final class MainViewDataSource {
     
     // MARK: - Data
     
-    func section(forIndex index: Int) -> Section {
-        if let section = Section(rawValue: index) {
-            return section
-        }
-        else {
-            fatalError("Invalid index passed in. Could not return `Section`")
-        }
-    }
-    
-    func sectionController(for indexPath: IndexPath) -> SectionController {
-        return sectionControllers[indexPath.section]
+    func sectionController(forIndex index: Int) -> SectionController {
+        return sectionControllers[index]
     }
     
     func cellController(for indexPath: IndexPath) -> CellController {
-        return cellControllers[0]
-//        return sectionController(for: indexPath).cellControllers[indexPath.row]
+        switch sectionController(forIndex: indexPath.section) {
+        case .content(let cellControllers):
+            return cellControllers[indexPath.row]
+        case .footer(let cellControllers):
+            return cellControllers[indexPath.row]
+        }
     }
 }
 
@@ -90,6 +86,18 @@ extension MainViewDataSource: Requesting {
     }
     
     private func requestInitial(_ completion: @escaping CompletionClosure) {
-        
+        switch Requester.request(.main) {
+        case .success(let json):
+            if let entity = MainEntity(json: json) {
+                self.entity = entity
+                state = .completed
+            }
+            else {
+                state = .failed(.generic)
+            }
+        case .failure(let error):
+            state = .failed(.unknown(error))
+        }
+        completion(state)
     }
 }
