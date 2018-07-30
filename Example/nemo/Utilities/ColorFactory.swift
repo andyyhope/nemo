@@ -37,9 +37,5 @@ enum ColorFactory: String {
     init(string: String) {
         self = ColorFactory(rawValue: string) ?? .clear
     }
-    
-    static func color(forColor string: String) -> UIColor {
-        return ColorFactory(string: string).color
-    }
 }
 

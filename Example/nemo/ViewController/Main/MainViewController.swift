@@ -36,6 +36,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
         prepareTableView()
         
         dataSource.request(.initial) { [weak self] result in
+            print("LOADED")
             switch result {
             case .loading:
                 break
@@ -67,15 +68,16 @@ final class MainViewController: UIViewController, ErrorPresenting {
     // MARK: - Preparation
     
     private func prepareTableView() {
-        view = tableView
-
+        tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.separatorStyle = .none
         tableView.register(TextCell.self)
         tableView.register(DetailCell.self)
         tableView.register(ImageCell.self)
         tableView.register(CarouselCell.self)
+        
+        view.addSubview(tableView)
     }
 }
 
@@ -86,16 +88,11 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Data
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return DataSource.SectionController.count
+        return dataSource.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch dataSource.sectionController(forIndex: section) {
-        case .content(let cellControllers):
-            return cellControllers.count
-        case .footer(let cellControllers):
-            return cellControllers.count
-        }
+        return dataSource.numberOfRows(inSection: section)
     }
     
     
@@ -152,11 +149,20 @@ extension MainViewController: UITableViewDelegate {
         case .text:
             return TextCell.defaultHeight
         case .detail:
-            return DetailCell.defaultHeight
+            return tableView.estimatedRowHeight
         case .image:
             return ImageCell.defaultHeight
         case .carousel:
             return CarouselCell.defaultHeight
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch dataSource.cellController(for: indexPath) {
+        case .detail:
+            return DetailCell.defaultHeight
+        default:
+            return self.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     

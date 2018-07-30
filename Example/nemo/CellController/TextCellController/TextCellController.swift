@@ -32,6 +32,8 @@ final class TextCellController {
     
     func prepare(_ cell: TextCell) {        
         prepareBindings(for: cell)
+        cell.label.text = model.headingLabelText
+        cell.backgroundColor = model.backgroundColor
     }
     
     private func prepareBindings(for cell: TextCell) {

@@ -32,6 +32,8 @@ final class ImageCellController {
     
     func prepare(_ cell: ImageCell) {        
         prepareBindings(for: cell)
+        cell.coverImageView.image = model.image
+        cell.backgroundColor = model.backgroundColor
     }
     
     private func prepareBindings(for cell: ImageCell) {

@@ -24,13 +24,13 @@ final class CarouselCellModel {
     
     // MARK: - Computed Properties
     
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
-//}
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
+}
 //
 //extension CarouselCellModel: ViewStateManageable {
 //    enum ViewState {
 //        case <#state 1#>, <#state 2#>
 //    }
-}
+//}

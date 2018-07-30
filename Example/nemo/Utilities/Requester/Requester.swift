@@ -8,14 +8,14 @@
 
 import Foundation
 
-private let delay: UInt32 = 3
-private let type = "json"
+private let delay: UInt32 = 1
+private let type: String = "json"
 
 enum Request: String {
     case main
     
     var resource: String {
-        return "\(self.rawValue).\(type)"
+        return rawValue
     }
 }
 

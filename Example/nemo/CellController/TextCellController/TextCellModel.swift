@@ -25,13 +25,17 @@ final class TextCellModel {
     
     // MARK: - Computed Properties
     
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
-//}
+    var headingLabelText: String {
+        return entity.text
+    }
+    
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
+}
 //
 //extension TextCellModel: ViewStateManageable {
 //    enum ViewState {
 //        case <#state 1#>, <#state 2#>
 //    }
-}
+//}

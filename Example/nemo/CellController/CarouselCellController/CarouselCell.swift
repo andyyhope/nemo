@@ -19,6 +19,6 @@ class CarouselCell: UITableViewCell, NibLoadable {
 
 extension CarouselCell: HeightDefaultable {
     static var defaultHeight: CGFloat {
-        return 100
+        return 200
     }
 }

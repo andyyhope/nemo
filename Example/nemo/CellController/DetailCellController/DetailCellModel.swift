@@ -25,13 +25,25 @@ final class DetailCellModel {
     
     // MARK: - Computed Properties
     
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
-//}
+    var headingLabelText: String {
+        return entity.heading
+    }
+    
+    var headingLabelFont: UIFont {
+        return .boldSystemFont(ofSize: 22)
+    }
+    
+    var detailLabelText: String {
+        return entity.detail
+    }
+    
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
+}
 //
 //extension DetailCellModel: ViewStateManageable {
 //    enum ViewState {
 //        case <#state 1#>, <#state 2#>
 //    }
-}
+//}

@@ -8,6 +8,8 @@
 
 import Foundation
 
-enum SectionType {
-    case main([CellType])
-}
+//enum SectionEntity {
+//    case cover(SectionEntity)
+//    case content([SectionEntity])
+//    case footer(SectionEntity)
+//}

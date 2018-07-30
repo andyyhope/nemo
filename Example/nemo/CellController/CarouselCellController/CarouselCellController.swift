@@ -37,6 +37,7 @@ final class CarouselCellController {
     
     func prepare(_ cell: CarouselCell) {
         prepareBindings(for: cell)
+        cell.collectionView.backgroundColor = model.backgroundColor
     }
     
     private func prepareBindings(for cell: CarouselCell) {

@@ -30,8 +30,12 @@ final class DetailCellController {
     
     // MARK: - Preparation
     
-    func prepare(_ cell: DetailCell) {        
+    func prepare(_ cell: DetailCell) {
         prepareBindings(for: cell)
+        cell.headingLabel.text = model.headingLabelText
+        cell.headingLabel.font = model.headingLabelFont
+        cell.detailLabel.text = model.detailLabelText
+        cell.backgroundColor = model.backgroundColor
     }
     
     private func prepareBindings(for cell: DetailCell) {

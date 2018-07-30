@@ -25,13 +25,21 @@ final class ImageCellModel {
     
     // MARK: - Computed Properties
     
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
-//}
+    var captianLabelText: String {
+        return entity.caption
+    }
+    
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: entity.imageName)
+    }
+}
 //
 //extension ImageCellModel: ViewStateManageable {
 //    enum ViewState {
 //        case <#state 1#>, <#state 2#>
 //    }
-}
+//}

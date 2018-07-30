@@ -32,7 +32,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="coverImageView" destination="H2p-sc-9uM" id="lp4-6e-z82"/>
+                <outlet property="coverImageView" destination="2dl-8W-Z1n" id="wQW-zg-n2C"/>
             </connections>
         </tableViewCell>
     </objects>

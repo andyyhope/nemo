@@ -10,3 +10,9 @@
 
 - Cell - DaSoMo
   - Remove entity from initializer/remove entity from computed property. Needs to match with other DaSoMo
+
+
+VC - DaSo
+- Add:
+  - var numberOfSections: Int
+  - func numberOfRows(inSection section: Int) -> Int

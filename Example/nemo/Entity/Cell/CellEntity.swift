@@ -21,26 +21,20 @@ enum CellEntity {
         
         switch type {
         case "text":
-            if let entity = TextCellEntity(json: json) {
-                self = .text(entity)
-            }
+            guard let entity = TextCellEntity(json: json) else { fallthrough }
+            self = .text(entity)
         case "detail":
-            if let entity = DetailCellEntity(json: json) {
-                self = .detail(entity)
-            }
+            guard let entity = DetailCellEntity(json: json) else { fallthrough }
+            self = .detail(entity)
         case "image":
-            if let entity = ImageCellEntity(json: json) {
-                self = .image(entity)
-            }
+            guard let entity = ImageCellEntity(json: json) else { fallthrough }
+            self = .image(entity)
         case "carousel":
-            if let entity = CarouselCellEntity(json: json) {
-                self = .carousel(entity)
-            }
+            guard let entity = CarouselCellEntity(json: json) else { fallthrough }
+            self = .carousel(entity)
         default:
             assertionFailure("Invalid CellController identifier passed: \(type)")
             return nil
         }
-        assertionFailure("Couldn't parse CellController with type: \(type)")
-        return nil
     }
 }
