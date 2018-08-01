@@ -10,15 +10,16 @@ import Foundation
 
 struct CarouselCellEntity {
     let backgroundColor: String
-    let items: [Any]
+    let entities: [CarouselCellType]
     
     init?(json: JSON) {
         guard
-            let backgroundColor = json["backgroundColor"] as? String
+            let backgroundColor = json["backgroundColor"] as? String,
+            let entities = json["entities"] as? [JSON]
             else { return nil }
         
         self.backgroundColor = backgroundColor
-        self.items = []
+        self.entities = entities.compactMap { CarouselCellType(json: $0) }
     }
 }
 

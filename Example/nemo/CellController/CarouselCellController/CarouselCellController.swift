@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CarouselCellController {
+final class CarouselCellController: NSObject {
     
     // MARK: - Properties
     
@@ -42,5 +42,33 @@ final class CarouselCellController {
     
     private func prepareBindings(for cell: CarouselCell) {
         
+    }
+}
+
+extension CarouselCellController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return dataSource.numberOfSections
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.numberOfCells(inSection: section)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch dataSource.cellController(for: indexPath) {
+        case .ad(let cellController):
+            let cell: AdCarouselCell = collectionView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        case .icon(let cellController):
+            let cell: IconCarouselCell = collectionView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+            
+        case .image(let cellController):
+            let cell: ImageCarouselCell = collectionView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
+        }
     }
 }

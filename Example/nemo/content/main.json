@@ -12,16 +12,19 @@
 		{
 			"type": "carousel",
 			"backgroundColor": "black",
-			"items": [
+			"entities": [
 				{
+                    "type:": "ad"
 					"text": "bongo",
 					"background": "dark",
 				},
 				{
+                    "type:": "image"
 					"text": "banjo",
 					"background": "default",
 				},
 				{
+                    "type:": "icon"
 					"text": "bagpipes",
 					"background": "light",
 				},
