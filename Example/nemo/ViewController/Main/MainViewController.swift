@@ -36,7 +36,6 @@ final class MainViewController: UIViewController, ErrorPresenting {
         prepareTableView()
         
         dataSource.request(.initial) { [weak self] result in
-            print("LOADED")
             switch result {
             case .loading:
                 break
@@ -72,6 +71,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.backgroundColor = model.backgroundColor
         tableView.register(TextCell.self)
         tableView.register(DetailCell.self)
         tableView.register(ImageCell.self)

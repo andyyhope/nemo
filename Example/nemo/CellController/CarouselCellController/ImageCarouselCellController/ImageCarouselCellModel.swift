@@ -33,6 +33,10 @@ final class ImageCarouselCellModel {
         return .color(forColor: entity.backgroundColor)
     }
     
+    var image: UIImage? {
+        return UIImage(named: entity.imageName)
+    }
+    
 //}
 //
 //extension ImageCarouselCellModel: ViewStateManageable {

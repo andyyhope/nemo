@@ -25,12 +25,16 @@ final class AdCarouselCellModel {
     
     // MARK: - Computed Properties
     
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
+    var captionLabelText: String {
+        return entity.company
+    }
     
     var backgroundColor: UIColor {
         return .color(forColor: entity.backgroundColor)
+    }
+    
+    var image: UIImage? {
+        return UIImage(named: entity.imageName)
     }
 //}
 //

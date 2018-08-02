@@ -32,6 +32,10 @@ final class IconCarouselCellModel {
     var backgroundColor: UIColor {
         return .color(forColor: entity.backgroundColor)
     }
+    
+    var iconImage: UIImage? {
+        return UIImage(named: entity.iconName)
+    }
 //}
 //
 //extension IconCarouselCellModel: ViewStateManageable {

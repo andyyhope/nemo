@@ -22,6 +22,12 @@ final class MainViewModel {
         self.entity = entity
         self.state = .loading
     }
+    
+    // MARK: - Computed Properties
+    
+    var backgroundColor: UIColor {
+        return .black
+    }
 }
 //
 //extension MainViewModel:  {

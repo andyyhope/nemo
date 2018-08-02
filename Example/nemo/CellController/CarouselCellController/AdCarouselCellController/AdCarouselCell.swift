@@ -8,13 +8,17 @@
 
 import UIKit
 
-class AdCarouselCell: UICollectionViewCell {
+class AdCarouselCell: UICollectionViewCell, NibLoadable {
 
+    @IBOutlet weak var imageView: UIImageView! { didSet {
+        imageView.contentMode = .scaleAspectFill
+        }
+    }
+    @IBOutlet weak var captionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
 }
 
 extension AdCarouselCell: SizeDefaultable {

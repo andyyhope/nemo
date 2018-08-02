@@ -88,17 +88,28 @@ extension CarouselCellController: UICollectionViewDelegate {
 extension CarouselCellController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch dataSource.cellController(for: indexPath) {
-        case .ad:
-            return AdCarouselCell.defaultSize
-        case .icon:
-            return IconCarouselCell.defaultSize
-        case .image:
-            return ImageCarouselCell.defaultSize
-        }
+        
+        let size: CGSize = {
+            switch dataSource.cellController(for: indexPath) {
+            case .ad:
+                return AdCarouselCell.defaultSize
+            case .icon:
+                return IconCarouselCell.defaultSize
+            case .image:
+                return ImageCarouselCell.defaultSize
+            }
+        }()
+        
+        return .init(
+            width: size.width,
+            height: size.height - (CarouselCell.inset * 2))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return CarouselCell.edgeInsets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return model.minimumInteritemSpacing(forSection: section)
+        return CarouselCell.inset
     }
 }

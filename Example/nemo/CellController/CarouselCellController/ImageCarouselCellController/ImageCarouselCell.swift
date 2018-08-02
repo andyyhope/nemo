@@ -10,7 +10,10 @@ import UIKit
 
 class ImageCarouselCell: UICollectionViewCell, NibLoadable {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView! { didSet {
+        imageView.contentMode = .scaleAspectFill
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

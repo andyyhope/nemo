@@ -33,6 +33,8 @@ final class AdCarouselCellController {
     func prepare(_ cell: AdCarouselCell) {        
         prepareBindings(for: cell)
         cell.backgroundColor = model.backgroundColor
+        cell.imageView.image = model.image
+        cell.captionLabel.text = model.captionLabelText
     }
     
     private func prepareBindings(for cell: AdCarouselCell) {

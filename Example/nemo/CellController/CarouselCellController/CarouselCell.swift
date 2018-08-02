@@ -10,6 +10,14 @@ import UIKit
 
 class CarouselCell: UITableViewCell, NibLoadable {
     
+    static var inset: CGFloat {
+        return 8
+    }
+    
+    static var edgeInsets: UIEdgeInsets {
+        return .init(top: inset, left: inset, bottom: inset, right: inset)
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func awakeFromNib() {

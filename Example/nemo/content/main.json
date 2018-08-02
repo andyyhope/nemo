@@ -18,12 +18,12 @@
 					"description": "Space rides",
 					"company": "NASAA",
 					"url": "nasaa.org",
-					"image": "spaceship",
+					"image": "city",
 					"backgroundColor": "green",
 				},
 				{
                     "type": "image",
-                    "image": "dog",
+                    "image": "dune",
 					"caption": "banjo",
 					"backgroundColor": "blue",
 				},
@@ -46,7 +46,7 @@
 		},
 		{
 			"type": "image",
-			"image": "stock-1",
+			"image": "mountain",
 			"caption": "This is a photo",
 			"backgroundColor": "red",
 			"navigation": {

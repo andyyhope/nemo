@@ -9,11 +9,18 @@
 import UIKit
 
 class IconCarouselCell: UICollectionViewCell, NibLoadable {
-    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var iconImageView: UIImageView! { didSet {
+            iconImageView.contentMode = .scaleAspectFill
+        }
+    }
     @IBOutlet weak var label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        
     }
 
 }

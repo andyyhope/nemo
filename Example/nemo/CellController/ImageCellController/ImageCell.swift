@@ -10,7 +10,10 @@ import UIKit
 
 class ImageCell: UITableViewCell, NibLoadable {
 
-    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var coverImageView: UIImageView! { didSet {
+        coverImageView.contentMode = .scaleAspectFill
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

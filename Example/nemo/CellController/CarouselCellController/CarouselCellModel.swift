@@ -20,8 +20,9 @@ final class CarouselCellModel {
     // MARK: - Initializer
     
     init(entity: CarouselCellEntity) {
-        self.layout = UICollectionViewFlowLayout()
         self.entity = entity
+        self.layout = UICollectionViewFlowLayout()
+        (self.layout as? UICollectionViewFlowLayout)?.scrollDirection = .horizontal
     }
     
     // MARK: - Layout
