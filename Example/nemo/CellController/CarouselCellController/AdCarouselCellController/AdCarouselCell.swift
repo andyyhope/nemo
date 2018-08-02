@@ -16,3 +16,9 @@ class AdCarouselCell: UICollectionViewCell {
     }
 
 }
+
+extension AdCarouselCell: SizeDefaultable {
+    static var defaultSize: CGSize {
+        return .init(width: 200, height: CarouselCell.defaultHeight)
+    }
+}

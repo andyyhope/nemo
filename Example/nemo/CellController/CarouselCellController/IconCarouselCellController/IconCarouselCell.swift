@@ -18,8 +18,8 @@ class IconCarouselCell: UICollectionViewCell, NibLoadable {
 
 }
 
-extension IconCarouselCell: HeightDefaultable {
-    static var defaultHeight: CGFloat {
-        return 80
+extension IconCarouselCell: SizeDefaultable {
+    static var defaultSize: CGSize {
+        return .init(width: 100, height: CarouselCell.defaultHeight)
     }
 }

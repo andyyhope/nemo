@@ -37,7 +37,15 @@ final class CarouselCellController: NSObject {
     
     func prepare(_ cell: CarouselCell) {
         prepareBindings(for: cell)
-        cell.collectionView.backgroundColor = model.backgroundColor
+        
+        var collectionView: UICollectionView { return cell.collectionView }
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.backgroundColor = model.backgroundColor
+        collectionView.collectionViewLayout = model.layout
+        collectionView.register(AdCarouselCell.self)
+        collectionView.register(IconCarouselCell.self)
+        collectionView.register(ImageCarouselCell.self)
     }
     
     private func prepareBindings(for cell: CarouselCell) {
@@ -70,5 +78,27 @@ extension CarouselCellController: UICollectionViewDataSource {
             cellController.prepare(cell)
             return cell
         }
+    }
+}
+
+extension CarouselCellController: UICollectionViewDelegate {
+    
+}
+
+extension CarouselCellController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch dataSource.cellController(for: indexPath) {
+        case .ad:
+            return AdCarouselCell.defaultSize
+        case .icon:
+            return IconCarouselCell.defaultSize
+        case .image:
+            return ImageCarouselCell.defaultSize
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return model.minimumInteritemSpacing(forSection: section)
     }
 }

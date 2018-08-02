@@ -13,6 +13,7 @@ struct AdCarouselCellEntity {
     let description: String
     let imageName: String
     let url: URL
+    let backgroundColor: String
     
     init?(json: JSON) {
         guard
@@ -20,12 +21,14 @@ struct AdCarouselCellEntity {
             let description = json["description"] as? String,
             let urlString = json["url"] as? String,
             let url = URL(string: urlString),
-            let imageName = json["image"] as? String
+            let imageName = json["image"] as? String,
+            let backgroundColor = json["backgroundColor"] as? String
             else { return nil }
         
         self.company = company
         self.description = description
         self.url = url
         self.imageName = imageName
+        self.backgroundColor = backgroundColor
     }
 }

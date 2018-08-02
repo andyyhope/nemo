@@ -28,6 +28,10 @@ final class AdCarouselCellModel {
 //    var headingLabelText: String {
 //        return entity.<#name#>
 //    }
+    
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
 //}
 //
 //extension AdCarouselCellModel: ViewStateManageable {

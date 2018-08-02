@@ -32,6 +32,7 @@ final class AdCarouselCellController {
     
     func prepare(_ cell: AdCarouselCell) {        
         prepareBindings(for: cell)
+        cell.backgroundColor = model.backgroundColor
     }
     
     private func prepareBindings(for cell: AdCarouselCell) {

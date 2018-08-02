@@ -14,12 +14,20 @@ final class CarouselCellModel {
     
 //    var state: ViewState
     let entity: CarouselCellEntity
+    let layout: UICollectionViewLayout
     
     
     // MARK: - Initializer
     
     init(entity: CarouselCellEntity) {
+        self.layout = UICollectionViewFlowLayout()
         self.entity = entity
+    }
+    
+    // MARK: - Layout
+    
+    func minimumInteritemSpacing(forSection section: Int) -> CGFloat {
+        return 8
     }
     
     // MARK: - Computed Properties

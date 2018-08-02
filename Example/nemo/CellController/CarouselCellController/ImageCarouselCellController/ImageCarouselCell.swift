@@ -17,8 +17,8 @@ class ImageCarouselCell: UICollectionViewCell, NibLoadable {
     }
 }
 
-extension ImageCarouselCell: HeightDefaultable {
-    static var defaultHeight: CGFloat {
-        return 80
+extension ImageCarouselCell: SizeDefaultable {
+    static var defaultSize: CGSize {
+        return .init(width: 80, height: CarouselCell.defaultHeight)
     }
 }

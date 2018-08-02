@@ -14,19 +14,24 @@
 			"backgroundColor": "black",
 			"entities": [
 				{
-                    "type:": "ad"
-					"text": "bongo",
-					"background": "dark",
+                    "type": "ad",
+					"description": "Space rides",
+					"company": "NASAA",
+					"url": "nasaa.org",
+					"image": "spaceship",
+					"backgroundColor": "green",
 				},
 				{
-                    "type:": "image"
-					"text": "banjo",
-					"background": "default",
+                    "type": "image",
+                    "image": "dog",
+					"caption": "banjo",
+					"backgroundColor": "blue",
 				},
 				{
-                    "type:": "icon"
+                    "type": "icon",
+                    "icon": "glyph",
 					"text": "bagpipes",
-					"background": "light",
+					"backgroundColor": "red",
 				},
 			]
 		},

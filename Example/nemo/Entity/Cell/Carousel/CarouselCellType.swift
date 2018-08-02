@@ -19,10 +19,10 @@ enum CarouselCellType {
             else { assertionFailure("Invalid CellController 'type' key passed"); return nil }
         
         switch type {
-        case "text":
+        case "ad":
             guard let entity = AdCarouselCellEntity(json: json) else { fallthrough }
             self = .ad(entity)
-        case "detail":
+        case "icon":
             guard let entity = IconCarouselCellEntity(json: json) else { fallthrough }
             self = .icon(entity)
         case "image":

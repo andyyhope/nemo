@@ -28,6 +28,11 @@ final class ImageCarouselCellModel {
 //    var headingLabelText: String {
 //        return entity.<#name#>
 //    }
+    
+    var backgroundColor: UIColor {
+        return .color(forColor: entity.backgroundColor)
+    }
+    
 //}
 //
 //extension ImageCarouselCellModel: ViewStateManageable {
