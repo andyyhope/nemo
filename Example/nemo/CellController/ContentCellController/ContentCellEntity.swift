@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CellEntity {
+enum ContentCellEntity {
     case text(TextCellEntity)
     case detail(DetailCellEntity)
     case image(ImageCellEntity)

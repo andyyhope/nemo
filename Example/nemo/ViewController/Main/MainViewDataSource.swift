@@ -23,7 +23,7 @@ final class MainViewDataSource {
     }
     var state: State
     var model: MainViewModel
-    private var cellControllers: [CellController]
+    private var cellControllers: [ContentCellControllerType]
     
     // MARK: - Initializer
     
@@ -56,7 +56,7 @@ final class MainViewDataSource {
 //        return sectionControllers[index]
 //    }
     
-    func cellController(for indexPath: IndexPath) -> CellController {
+    func cellController(for indexPath: IndexPath) -> ContentCellControllerType {
         return cellControllers[indexPath.row]
 //        switch sectionController(forIndex: indexPath.section) {
 //        case .content(let cellControllers):
@@ -69,7 +69,7 @@ final class MainViewDataSource {
     private func updateEntity(_ entity: MainEntity) {
         self.entity = entity
         cellControllers = entity.entities
-            .map { CellController(cellEntity: $0) } 
+            .map { ContentCellControllerType(cellEntity: $0) } 
     }
 }
 

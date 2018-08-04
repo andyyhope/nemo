@@ -9,7 +9,6 @@
 import UIKit
 
 extension MainViewController {
-//    typealias Section = DataSource.Section
     typealias DataSource = MainViewDataSource
     typealias Model = MainViewModel
 }

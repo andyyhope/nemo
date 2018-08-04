@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum CellController {
+enum ContentCellControllerType {
     case text(TextCellController)
     case detail(DetailCellController)
     case image(ImageCellController)
     case carousel(CarouselCellController)
     
-    init(cellEntity: CellEntity) {
+    init(cellEntity: ContentCellEntity) {
         switch cellEntity {
         case .text(let entity):
             self = .text(.init(entity: entity))
