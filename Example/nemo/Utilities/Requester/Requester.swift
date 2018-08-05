@@ -11,6 +11,10 @@ import Foundation
 private let delay: UInt32 = 1
 private let type: String = "json"
 
+enum Submit {
+    case submitForm(JSON)
+}
+
 enum Request: String {
     case main
     
@@ -38,5 +42,9 @@ struct Requester {
         catch {
             return .failure("Couldn't parse json file:\n\(error.localizedDescription)")
         }
+    }
+    
+    static func submit(_ submit: Submit) -> Result<JSON> {
+        return .success([:])
     }
 }
