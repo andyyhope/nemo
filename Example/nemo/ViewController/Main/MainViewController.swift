@@ -34,6 +34,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
         
         prepareTableView()
         
+        
         dataSource.request(.initial) { [weak self] result in
             switch result {
             case .loading:
@@ -75,6 +76,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
         tableView.register(DetailCell.self)
         tableView.register(ImageCell.self)
         tableView.register(CarouselCell.self)
+        tableView.register(SegmentSectionHeaderView.self)
         
         view.addSubview(tableView)
     }
@@ -87,6 +89,7 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Data
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print(dataSource.numberOfSections)
         return dataSource.numberOfSections
     }
     
@@ -129,7 +132,7 @@ extension MainViewController: UITableViewDataSource {
                 return cell
             }
         case .segment(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
+            switch sectionController.selectedIndexCellControllers[indexPath.row] {
             case .text(let cellController):
                 let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
@@ -171,7 +174,7 @@ extension MainViewController: UITableViewDelegate {
                 return ImageCell.defaultHeight
             }
         case .segment(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
+            switch sectionController.selectedIndexCellControllers[indexPath.row] {
             case .text:
                 return TextCell.defaultHeight
             case .detail:
@@ -197,7 +200,7 @@ extension MainViewController: UITableViewDelegate {
                 return self.tableView(tableView, heightForRowAt: indexPath)
             }
         case .segment(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
+            switch sectionController.selectedIndexCellControllers[indexPath.row] {
             case .text:
                 return self.tableView(tableView, heightForRowAt: indexPath)
             case .detail:
@@ -211,12 +214,14 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return .leastNormalMagnitude
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
-//            return <#Header height#>
-//        }
+        switch dataSource.sectionController(forIndex: section) {
+        case .content:
+            return .leastNormalMagnitude
+        case .segment:
+            return SegmentSectionHeaderView.defaultHeight
+        case .carousel:
+            return .leastNormalMagnitude
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -232,12 +237,16 @@ extension MainViewController: UITableViewDelegate {
     // MARK: View
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
-//            return <#Header view#>
-//        }
+        switch dataSource.sectionController(forIndex: section) {
+        case .content:
+            return nil
+        case .segment(let sectionController):
+            let view: SegmentSectionHeaderView = tableView.dequeueReusableView()
+            sectionController.prepare(view)
+            return view
+        case .carousel:
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

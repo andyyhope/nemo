@@ -9,9 +9,9 @@
 import Foundation
 
 enum SectionControllerType {
-    case content(ContentSectionControllerType)
-    case carousel(CarouselSectionControllerType)
-    case segment(SegmentSectionControllerType)
+    case content(ContentSectionController)
+    case carousel(CarouselSectionController)
+    case segment(SegmentSectionController)
 //    case form([ContentCellControllerType])
     
     init(sectionEntity: SectionEntity) {

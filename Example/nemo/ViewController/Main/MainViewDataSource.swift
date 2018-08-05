@@ -46,7 +46,7 @@ final class MainViewDataSource {
         case .content(let sectionController):
             return sectionController.cellControllers.count
         case .segment(let sectionController):
-            return sectionController.cellControllers.count
+            return sectionController.dataSource.selectedIndexCellControllers.count
         case .carousel:
             return 1
         }

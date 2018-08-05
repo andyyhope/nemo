@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CarouselSectionControllerType {
+struct CarouselSectionController {
     let entity: CarouselSectionEntity
     let cellControllers: [CarouselCellController]
     

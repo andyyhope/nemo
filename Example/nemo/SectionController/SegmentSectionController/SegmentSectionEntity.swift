@@ -9,16 +9,18 @@
 import Foundation
 
 struct SegmentSectionEntity {
-    let cellEntities: [ContentCellEntity]
+    let optionEntities: [SegmentSectionOptionEntity]
     
     init?(json: JSON) {
-        guard let entities = json["cells"] as? [JSON] else { return nil }
+        guard let entities = json["segments"] as? [JSON] else { return nil }
         
-        self.cellEntities = entities
-            .compactMap{ ContentCellEntity(json: $0) }
+        self.optionEntities = entities
+            .compactMap{ SegmentSectionOptionEntity(json: $0) }
         
-        if self.cellEntities.count == 0 {
+        if self.optionEntities.count == 0 {
             return nil
         }
     }
 }
+
+

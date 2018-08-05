@@ -40,12 +40,12 @@ extension UITableView {
         }
     }
     
-    func dequeueReusableView<T: UITableViewHeaderFooterView>() -> T? {
+    func dequeueReusableView<T: UITableViewHeaderFooterView>() -> T {
         if let view = dequeueReusableHeaderFooterView(withIdentifier: T.reuseIdentifier) as? T {
             return view
         }
         else {
-            return nil
+            fatalError("The dequeueReusableView \(String(describing: T.self)) couldn't be loaded.")
         }
     }
 }
