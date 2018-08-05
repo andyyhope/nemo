@@ -9,15 +9,15 @@
 import Foundation
 
 struct MainEntity {
-    let entities: [ContentCellEntity]
+    let sections: [SectionEntity]
     
     init?(json: JSON) {
-        guard let entities = json["entities"] as? [JSON] else { return nil }
+        guard let sections = json["sections"] as? [JSON] else { return nil }
         
-        self.entities = entities
-            .compactMap{ ContentCellEntity(json: $0) }
+        self.sections = sections
+            .compactMap{ SectionEntity(json: $0) }
         
-        if self.entities.count == 0 {
+        if self.sections.count == 0 {
             return nil
         }
     }

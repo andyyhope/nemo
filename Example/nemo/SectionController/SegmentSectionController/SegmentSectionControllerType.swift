@@ -1,18 +1,18 @@
 //
-//  ContentSectionControllerType.swift
+//  SegmentSectionControllerType.swift
 //  nemo
 //
-//  Created by Andyy Hope on 4/8/18.
+//  Created by Andyy Hope on 5/8/18.
 //  Copyright © 2018 Andyy Hope. All rights reserved.
 //
 
 import Foundation
 
-struct ContentSectionControllerType {
-    let entity: ContentSectionEntity
+struct SegmentSectionControllerType {
+    let entity: SegmentSectionEntity
     let cellControllers: [ContentCellControllerType]
     
-    init(entity: ContentSectionEntity) {
+    init(entity: SegmentSectionEntity) {
         self.entity = entity
         self.cellControllers = self.entity.cellEntities
             .compactMap { ContentCellControllerType(cellEntity: $0) }

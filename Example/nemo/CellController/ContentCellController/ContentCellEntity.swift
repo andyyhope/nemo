@@ -12,7 +12,6 @@ enum ContentCellEntity {
     case text(TextCellEntity)
     case detail(DetailCellEntity)
     case image(ImageCellEntity)
-    case carousel(CarouselCellEntity)
     
     init?(json: JSON) {
         guard
@@ -29,9 +28,6 @@ enum ContentCellEntity {
         case "image":
             guard let entity = ImageCellEntity(json: json) else { fallthrough }
             self = .image(entity)
-        case "carousel":
-            guard let entity = CarouselCellEntity(json: json) else { fallthrough }
-            self = .carousel(entity)
         default:
             assertionFailure("Invalid CellController identifier passed: \(type)")
             return nil

@@ -26,7 +26,7 @@ final class MainViewModel {
     // MARK: - Computed Properties
     
     var backgroundColor: UIColor {
-        return .black
+        return .white
     }
 }
 //

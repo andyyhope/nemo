@@ -10,10 +10,11 @@ import Foundation
 
 struct CarouselSectionControllerType {
     let entity: CarouselSectionEntity
-    let cellControllers: [CarouselCellControllerType]
+    let cellControllers: [CarouselCellController]
     
     init(entity: CarouselSectionEntity) {
         self.entity = entity
-        self.cellControllers = []
+        self.cellControllers = self.entity.cellEntities
+            .compactMap { CarouselCellController(entity: $0) }
     }
 }

@@ -15,7 +15,7 @@ struct CarouselCellEntity {
     init?(json: JSON) {
         guard
             let backgroundColor = json["backgroundColor"] as? String,
-            let entities = json["entities"] as? [JSON]
+            let entities = json["cells"] as? [JSON]
             else { return nil }
         
         self.backgroundColor = backgroundColor

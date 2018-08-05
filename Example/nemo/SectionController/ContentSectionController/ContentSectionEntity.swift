@@ -12,7 +12,7 @@ struct ContentSectionEntity {
     let cellEntities: [ContentCellEntity]
     
     init?(json: JSON) {
-        guard let entities = json["cell-entities"] as? [JSON] else { return nil }
+        guard let entities = json["cells"] as? [JSON] else { return nil }
         
         self.cellEntities = entities
             .compactMap{ ContentCellEntity(json: $0) }

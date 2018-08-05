@@ -1,57 +1,74 @@
 {
 	"type": "main",
-	"entities": [
-		{
-			"type": "text",
-			"backgroundColor": "blue",
-			"text": "Lorem ipsum",
-			"navigation": {
-				"destination": "apple"
-			},
-		},
-		{
-			"type": "carousel",
-			"backgroundColor": "black",
-			"entities": [
+    "sections": [
+        {
+			"type": "content",
+			"cells": [
 				{
-                    "type": "ad",
-					"description": "Space rides",
-					"company": "NASAA",
-					"url": "nasaa.org",
-					"image": "city",
-					"backgroundColor": "green",
-				},
-				{
-                    "type": "image",
-                    "image": "dune",
-					"caption": "banjo",
+					"type": "text",
 					"backgroundColor": "blue",
+					"text": "Lorem ipsum",
+					"navigation": {
+						"destination": "apple"
+					},
 				},
 				{
-                    "type": "icon",
-                    "icon": "glyph",
-					"text": "bagpipes",
+					"type": "detail",
+					"backgroundColor": "green",
+					"heading-text": "Breaking News",
+					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"navigation": {
+						"destination": "carrot"
+					},
+				},
+				{
+					"type": "image",
+					"image": "mountain",
+					"caption": "This is a photo",
 					"backgroundColor": "red",
+					"navigation": {
+						"destination": "orange"
+					},
 				},
 			]
-		},
-		{
-			"type": "detail",
-			"backgroundColor": "green",
-			"heading-text": "Breaking News",
-			"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-			"navigation": {
-				"destination": "carrot"
-			},
-		},
-		{
-			"type": "image",
-			"image": "mountain",
-			"caption": "This is a photo",
-			"backgroundColor": "red",
-			"navigation": {
-				"destination": "orange"
-			},
-		},
-	],
+        },
+        {
+			"type": "carousel",
+			"cells": [
+				{
+					"backgroundColor": "white",
+					"cells": [
+					{
+	                    "type": "ad",
+						"description": "Space rides",
+						"company": "NASAA",
+						"url": "nasaa.org",
+						"image": "city",
+						"backgroundColor": "green",
+					},
+					{
+	                    "type": "ad",
+						"description": "Space rides",
+						"company": "NASAA",
+						"url": "nasaa.org",
+						"image": "city",
+						"backgroundColor": "green",
+					},
+					{
+	                    "type": "image",
+	                    "image": "dune",
+						"caption": "banjo",
+						"backgroundColor": "blue",
+					},
+					{
+	                    "type": "icon",
+	                    "icon": "glyph",
+						"text": "bagpipes",
+						"backgroundColor": "red",
+					},
+			]
+				}
+			]
+        },
+    ]
 }

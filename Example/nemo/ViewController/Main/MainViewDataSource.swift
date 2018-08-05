@@ -23,7 +23,7 @@ final class MainViewDataSource {
     }
     var state: State
     var model: MainViewModel
-    private var cellControllers: [ContentCellControllerType]
+    private var sectionControllers: [SectionControllerType]
     
     // MARK: - Initializer
     
@@ -31,18 +31,29 @@ final class MainViewDataSource {
         self.state = .loading
         self.model = MainViewModel(entity: nil)
         self.entity = nil
-        self.cellControllers = []
+        self.sectionControllers = []
     }
     
     
     // MARK: - Data
     
     var numberOfSections: Int {
-        return 1
+        return sectionControllers.count
     }
     
     func numberOfRows(inSection section: Int) -> Int {
-        return cellControllers.count
+        switch sectionControllers[section] {
+        case .content(let sectionController):
+            return sectionController.cellControllers.count
+        case .segment(let sectionController):
+            return sectionController.cellControllers.count
+        case .carousel:
+            return 1
+        }
+        
+        
+//        return cellControllers.count
+        
 //        guard entity != nil else { return 0 }
 //        switch sectionController(forIndex: section) {
 //        case .content(let cellControllers):
@@ -52,24 +63,27 @@ final class MainViewDataSource {
 //        }
     }
     
-//    func sectionController(forIndex index: Int) -> SectionController {
-//        return sectionControllers[index]
-//    }
+    func sectionController(forIndex index: Int) -> SectionControllerType {
+        return sectionControllers[index]
+    }
     
-    func cellController(for indexPath: IndexPath) -> ContentCellControllerType {
-        return cellControllers[indexPath.row]
+//    func cellController(for indexPath: IndexPath) -> ContentCellControllerType {
+//        return cellControllers[indexPath.row]
+        
 //        switch sectionController(forIndex: indexPath.section) {
 //        case .content(let cellControllers):
 //            return cellControllers[indexPath.row]
 //        case .footer(let cellControllers):
 //            return cellControllers[indexPath.row]
 //        }
-    }
+//    }
     
     private func updateEntity(_ entity: MainEntity) {
         self.entity = entity
-        cellControllers = entity.entities
-            .map { ContentCellControllerType(cellEntity: $0) } 
+        self.sectionControllers = entity.sections
+            .compactMap { SectionControllerType(sectionEntity: $0) }
+//        cellControllers = entity.entities
+//            .map { ContentCellControllerType(cellEntity: $0) }
     }
 }
 

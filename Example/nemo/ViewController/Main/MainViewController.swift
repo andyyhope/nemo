@@ -110,29 +110,45 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Cells
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch dataSource.cellController(for: indexPath) {
-        case .text(let cellController):
-            let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
-            cellController.prepare(cell)
-            return cell
-            
-        case .detail(let cellController):
-            let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
-            cellController.prepare(cell)
-            return cell
-            
-        case .image(let cellController):
-            let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
-            cellController.prepare(cell)
-            return cell
-            
-        case .carousel(let cellController):
+        switch dataSource.sectionController(forIndex: indexPath.section) {
+        case .content(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text(let cellController):
+                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .detail(let cellController):
+                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .image(let cellController):
+                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+            }
+        case .segment(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text(let cellController):
+                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .detail(let cellController):
+                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .image(let cellController):
+                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+            }
+        case .carousel(let sectionController):
             let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
-            cellController.prepare(cell)
+            sectionController.cellControllers[indexPath.row].prepare(cell)
             return cell
-            
-        default:
-            fatalError("Invalid Cell passed into: \(String(describing:self))")
         }
     }
 }
@@ -144,23 +160,52 @@ extension MainViewController: UITableViewDelegate {
     // MARK: Height
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch dataSource.cellController(for: indexPath) {
-        case .text:
-            return TextCell.defaultHeight
-        case .detail:
-            return tableView.estimatedRowHeight
-        case .image:
-            return ImageCell.defaultHeight
+        switch dataSource.sectionController(forIndex: indexPath.section) {
+        case .content(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text:
+                return TextCell.defaultHeight
+            case .detail:
+                return tableView.estimatedRowHeight
+            case .image:
+                return ImageCell.defaultHeight
+            }
+        case .segment(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text:
+                return TextCell.defaultHeight
+            case .detail:
+                return tableView.estimatedRowHeight
+            case .image:
+                return ImageCell.defaultHeight
+            }
         case .carousel:
             return CarouselCell.defaultHeight
         }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch dataSource.cellController(for: indexPath) {
-        case .detail:
-            return DetailCell.defaultHeight
-        default:
+        
+        switch dataSource.sectionController(forIndex: indexPath.section) {
+        case .content(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text:
+                return self.tableView(tableView, heightForRowAt: indexPath)
+            case .detail:
+                return DetailCell.defaultHeight
+            case .image:
+                return self.tableView(tableView, heightForRowAt: indexPath)
+            }
+        case .segment(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text:
+                return self.tableView(tableView, heightForRowAt: indexPath)
+            case .detail:
+                return DetailCell.defaultHeight
+            case .image:
+                return self.tableView(tableView, heightForRowAt: indexPath)
+            }
+        case .carousel:
             return self.tableView(tableView, heightForRowAt: indexPath)
         }
     }

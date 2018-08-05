@@ -11,7 +11,7 @@ import Foundation
 enum SectionControllerType {
     case content(ContentSectionControllerType)
     case carousel(CarouselSectionControllerType)
-//    case segment([ContentCellControllerType])
+    case segment(SegmentSectionControllerType)
 //    case form([ContentCellControllerType])
     
     init(sectionEntity: SectionEntity) {
@@ -20,6 +20,8 @@ enum SectionControllerType {
             self = .content(.init(entity: entity))
         case .carousel(let entity):
             self = .carousel(.init(entity: entity))
+        case .segment(let entity):
+            self = .segment(.init(entity: entity))
         }
     }
 }
