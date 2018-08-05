@@ -31,11 +31,12 @@ class SegmentSectionController {
     }
     
     func prepare(_ view: SegmentSectionHeaderView) {
+    
         model.titles.enumerated()
             .forEach { view.segmentedControl.setTitle($1, forSegmentAt: $0) }
         
         view.segmentedControl.addTarget(
-            dataSource,
+            self,
             action: #selector(segmentedControlValueChanged(sender:)),
             for: .valueChanged)
     }

@@ -11,6 +11,10 @@ import UIKit
 final class SegmentSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
 
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }
 
 extension SegmentSectionHeaderView: HeightDefaultable {
