@@ -130,6 +130,16 @@ extension MainViewController: UITableViewDataSource {
                 let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
+                
+            case .textField(let cellController):
+                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .switchField(let cellController):
+                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
             }
         case .segment(let sectionController):
             switch sectionController.selectedIndexCellControllers[indexPath.row] {
@@ -147,11 +157,50 @@ extension MainViewController: UITableViewDataSource {
                 let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
+                
+            case .textField(let cellController):
+                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .switchField(let cellController):
+                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
             }
+        
         case .carousel(let sectionController):
             let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
             sectionController.cellControllers[indexPath.row].prepare(cell)
             return cell
+            
+        case .form(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text(let cellController):
+                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .detail(let cellController):
+                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .image(let cellController):
+                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .textField(let cellController):
+                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .switchField(let cellController):
+                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+            }
         }
     }
 }
@@ -172,6 +221,10 @@ extension MainViewController: UITableViewDelegate {
                 return tableView.estimatedRowHeight
             case .image:
                 return ImageCell.defaultHeight
+            case .textField:
+                return TextFieldCell.defaultHeight
+            case .switchField:
+                return SwitchCell.defaultHeight
             }
         case .segment(let sectionController):
             switch sectionController.selectedIndexCellControllers[indexPath.row] {
@@ -181,10 +234,29 @@ extension MainViewController: UITableViewDelegate {
                 return tableView.estimatedRowHeight
             case .image:
                 return ImageCell.defaultHeight
+            case .textField:
+                return TextFieldCell.defaultHeight
+            case .switchField:
+                return SwitchCell.defaultHeight
             }
         case .carousel:
             return CarouselCell.defaultHeight
+        
+        case .form(let sectionController):
+            switch sectionController.cellControllers[indexPath.row] {
+            case .text:
+                return TextCell.defaultHeight
+            case .detail:
+                return tableView.estimatedRowHeight
+            case .image:
+                return ImageCell.defaultHeight
+            case .textField:
+                return TextFieldCell.defaultHeight
+            case .switchField:
+                return SwitchCell.defaultHeight
+            }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -192,34 +264,30 @@ extension MainViewController: UITableViewDelegate {
         switch dataSource.sectionController(forIndex: indexPath.section) {
         case .content(let sectionController):
             switch sectionController.cellControllers[indexPath.row] {
-            case .text:
-                return self.tableView(tableView, heightForRowAt: indexPath)
             case .detail:
                 return DetailCell.defaultHeight
-            case .image:
+            default:
                 return self.tableView(tableView, heightForRowAt: indexPath)
             }
         case .segment(let sectionController):
             switch sectionController.selectedIndexCellControllers[indexPath.row] {
-            case .text:
-                return self.tableView(tableView, heightForRowAt: indexPath)
             case .detail:
                 return DetailCell.defaultHeight
-            case .image:
+            default:
                 return self.tableView(tableView, heightForRowAt: indexPath)
             }
         case .carousel:
+            return self.tableView(tableView, heightForRowAt: indexPath)
+        default:
             return self.tableView(tableView, heightForRowAt: indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch dataSource.sectionController(forIndex: section) {
-        case .content:
-            return .leastNormalMagnitude
         case .segment:
             return SegmentSectionHeaderView.defaultHeight
-        case .carousel:
+        default:
             return .leastNormalMagnitude
         }
     }
@@ -238,13 +306,11 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch dataSource.sectionController(forIndex: section) {
-        case .content:
-            return nil
         case .segment(let sectionController):
             let view: SegmentSectionHeaderView = tableView.dequeueReusableView()
             sectionController.prepare(view)
             return view
-        case .carousel:
+        default:
             return nil
         }
     }

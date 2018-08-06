@@ -11,12 +11,13 @@ import Foundation
 enum SectionEntity {
     
     private enum Types: String {
-        case content, carousel, segment
+        case content, carousel, segment, form
     }
     
     case content(ContentSectionEntity)
     case carousel(CarouselSectionEntity)
     case segment(SegmentSectionEntity)
+    case form(FormSectionEntity)
     
     init?(json: JSON) {
         guard
@@ -34,6 +35,9 @@ enum SectionEntity {
         case .segment:
             guard let entity = SegmentSectionEntity(json: json) else { fallthrough }
             self = .segment(entity)
+        case .form:
+            guard let entity = FormSectionEntity(json: json) else { fallthrough }
+            self = .form(entity)
         default:
             assertionFailure("Invalid SectionEntity identifier passed: \(type)")
             return nil

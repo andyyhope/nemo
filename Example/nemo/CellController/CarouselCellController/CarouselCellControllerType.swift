@@ -13,6 +13,7 @@ enum CarouselCellControllerType {
     case icon(IconCarouselCellController)
     case image(ImageCarouselCellController)
     
+    
     init(entity: CarouselCellType) {
         switch entity {
         case .ad(let entity):
