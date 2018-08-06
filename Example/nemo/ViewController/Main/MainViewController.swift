@@ -13,7 +13,7 @@ extension MainViewController {
     typealias Model = MainViewModel
 }
 
-final class MainViewController: UIViewController, ErrorPresenting {
+final class MainViewController: UIViewController, ErrorPresenting, CellControllerDisplayable, SectionControllerDisplayable {
     
     // MARK: - Properties
     
@@ -76,15 +76,12 @@ final class MainViewController: UIViewController, ErrorPresenting {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = model.backgroundColor
-        tableView.register(TextCell.self)
-        tableView.register(DetailCell.self)
-        tableView.register(ImageCell.self)
-        tableView.register(CarouselCell.self)
-        tableView.register(TextFieldCell.self)
-        tableView.register(SwitchFieldCell.self)
-        tableView.register(SegmentSectionHeaderView.self)
+        
+        
         
         view.addSubview(tableView)
+        registerCells(for: tableView)
+        registerViews(for: tableView)
     }
 }
 
@@ -108,117 +105,14 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
-//            return <#Header title#>
-//        }
     }
 
     
     // MARK: Cells
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch dataSource.sectionController(forIndex: indexPath.section) {
-        case .content(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
-            case .text(let cellController):
-                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .detail(let cellController):
-                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .image(let cellController):
-                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .carousel(let cellController):
-                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .textField(let cellController):
-                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .switchField(let cellController):
-                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-            }
-        case .segment(let sectionController):
-            switch sectionController.selectedIndexCellControllers[indexPath.row] {
-            case .text(let cellController):
-                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .detail(let cellController):
-                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .image(let cellController):
-                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-            
-            case .carousel(let cellController):
-                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .textField(let cellController):
-                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .switchField(let cellController):
-                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-            
-            }
-            
-        case .form(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
-            case .text(let cellController):
-                let cell: TextCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .detail(let cellController):
-                let cell: DetailCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .image(let cellController):
-                let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .carousel(let cellController):
-                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .textField(let cellController):
-                let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-                
-            case .switchField(let cellController):
-                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
-                cellController.prepare(cell)
-                return cell
-            }
-        }
+        let cellController = dataSource.cellController(for: indexPath)
+        return self.tableView(tableView, cellFor: cellController, at: indexPath)
     }
 }
 
@@ -229,111 +123,36 @@ extension MainViewController: UITableViewDelegate {
     // MARK: Height
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch dataSource.sectionController(forIndex: indexPath.section) {
-        case .content(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
-            case .text:
-                return TextCell.defaultHeight
-            case .detail:
-                return tableView.estimatedRowHeight
-            case .image:
-                return ImageCell.defaultHeight
-            case .carousel:
-                return CarouselCell.defaultHeight
-            case .textField:
-                return TextFieldCell.defaultHeight
-            case .switchField:
-                return SwitchFieldCell.defaultHeight
-            }
-        case .segment(let sectionController):
-            switch sectionController.selectedIndexCellControllers[indexPath.row] {
-            case .text:
-                return TextCell.defaultHeight
-            case .detail:
-                return tableView.estimatedRowHeight
-            case .image:
-                return ImageCell.defaultHeight
-            case .carousel:
-                return CarouselCell.defaultHeight
-            case .textField:
-                return TextFieldCell.defaultHeight
-            case .switchField:
-                return SwitchFieldCell.defaultHeight
-            }
-        case .form(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
-            case .text:
-                return TextCell.defaultHeight
-            case .detail:
-                return tableView.estimatedRowHeight
-            case .image:
-                return ImageCell.defaultHeight
-            case .carousel:
-                return CarouselCell.defaultHeight
-            case .textField:
-                return TextFieldCell.defaultHeight
-            case .switchField:
-                return SwitchFieldCell.defaultHeight
-            }
-        }
+        let cellController = dataSource.cellController(for: indexPath)
+        return self.tableView(tableView, cellHeightFor: cellController)
         
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        switch dataSource.sectionController(forIndex: indexPath.section) {
-        case .content(let sectionController):
-            switch sectionController.cellControllers[indexPath.row] {
-            case .detail:
-                return DetailCell.defaultHeight
-            default:
-                return self.tableView(tableView, heightForRowAt: indexPath)
-            }
-        case .segment(let sectionController):
-            switch sectionController.selectedIndexCellControllers[indexPath.row] {
-            case .detail:
-                return DetailCell.defaultHeight
-            default:
-                return self.tableView(tableView, heightForRowAt: indexPath)
-            }
-        default:
-            return self.tableView(tableView, heightForRowAt: indexPath)
-        }
+        let cellController = dataSource.cellController(for: indexPath)
+        return self.tableView(tableView, estimatedCellHeightFor: cellController)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch dataSource.sectionController(forIndex: section) {
-        case .segment:
-            return SegmentSectionHeaderView.defaultHeight
-        default:
-            return .leastNormalMagnitude
-        }
+        let sectionController = dataSource.sectionController(forIndex: section)
+        return self.tableView(tableView, sectionHeaderHeightFor: sectionController)
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .leastNormalMagnitude
+        let sectionController = dataSource.sectionController(forIndex: section)
+        return self.tableView(tableView, sectionFooterHeightFor: sectionController)
     }
     
     
     // MARK: View
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch dataSource.sectionController(forIndex: section) {
-        case .segment(let sectionController):
-            let view: SegmentSectionHeaderView = tableView.dequeueReusableView()
-            sectionController.prepare(view)
-            return view
-        default:
-            return nil
-        }
+        let sectionController = dataSource.sectionController(forIndex: section)
+        return self.tableView(tableView, headerViewFor: sectionController, atIndex: section)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
-//            return <#Footer view#>
-//        }
+        let sectionController = dataSource.sectionController(forIndex: section)
+        return self.tableView(tableView, footerViewFor: sectionController, atIndex: section)
     }
 }

@@ -67,16 +67,20 @@ final class MainViewDataSource {
         return sectionControllers[index]
     }
     
-//    func cellController(for indexPath: IndexPath) -> ContentCellControllerType {
-//        return cellControllers[indexPath.row]
-        
-//        switch sectionController(forIndex: indexPath.section) {
-//        case .content(let cellControllers):
-//            return cellControllers[indexPath.row]
-//        case .footer(let cellControllers):
-//            return cellControllers[indexPath.row]
-//        }
-//    }
+    func cellControllers(forIndex index: Int) -> [ContentCellControllerType] {
+        switch sectionController(forIndex: index) {
+        case .content(let sectionController):
+            return sectionController.cellControllers
+        case .form(let sectionController):
+            return sectionController.cellControllers
+        case .segment(let sectionController):
+            return sectionController.selectedIndexCellControllers
+        }
+    }
+    
+    func cellController(for indexPath: IndexPath) -> ContentCellControllerType {
+        return cellControllers(forIndex: indexPath.section)[indexPath.row]
+    }
     
     private func updateEntity(_ entity: MainEntity) {
         self.entity = entity
