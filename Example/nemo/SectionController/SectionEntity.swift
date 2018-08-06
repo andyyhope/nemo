@@ -15,7 +15,6 @@ enum SectionEntity {
     }
     
     case content(ContentSectionEntity)
-    case carousel(CarouselSectionEntity)
     case segment(SegmentSectionEntity)
     case form(FormSectionEntity)
     
@@ -29,9 +28,6 @@ enum SectionEntity {
         case .content:
             guard let entity = ContentSectionEntity(json: json) else { fallthrough }
             self = .content(entity)
-        case .carousel:
-            guard let entity = CarouselSectionEntity(json: json) else { fallthrough }
-            self = .carousel(entity)
         case .segment:
             guard let entity = SegmentSectionEntity(json: json) else { fallthrough }
             self = .segment(entity)

@@ -12,6 +12,7 @@ class ImageCell: UITableViewCell, NibLoadable {
 
     @IBOutlet weak var coverImageView: UIImageView! { didSet {
         coverImageView.contentMode = .scaleAspectFill
+        coverImageView.clipsToBounds = true
         }
     }
     

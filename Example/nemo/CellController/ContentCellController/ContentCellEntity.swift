@@ -12,11 +12,12 @@ enum ContentCellEntity {
     case text(TextCellEntity)
     case detail(DetailCellEntity)
     case image(ImageCellEntity)
+    case carousel(CarouselCellEntity)
     case textField(TextFieldCellEntity)
     case switchField(SwitchCellEntity)
     
     private enum Types: String {
-        case text, detail, image, textField, switchField
+        case text, detail, image, carousel, textField, switchField
     }
     
     init?(json: JSON) {
@@ -35,6 +36,9 @@ enum ContentCellEntity {
         case .image:
             guard let entity = ImageCellEntity(json: json) else { fallthrough }
             self = .image(entity)
+        case .carousel:
+            guard let entity = CarouselCellEntity(json: json) else { fallthrough }
+            self = .carousel(entity)
         case .textField:
             guard let entity = TextFieldCellEntity(json: json) else { fallthrough }
             self = .textField(entity)

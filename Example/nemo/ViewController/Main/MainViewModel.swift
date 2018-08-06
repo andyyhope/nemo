@@ -25,6 +25,10 @@ final class MainViewModel {
     
     // MARK: - Computed Properties
     
+    var title: String {
+        return "Ramen"
+    }
+    
     var backgroundColor: UIColor {
         return .white
     }

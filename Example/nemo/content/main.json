@@ -2,6 +2,63 @@
 	"type": "main",
     "sections": [
     	{
+			"type": "content",
+			"cells": [
+				{
+					"type": "carousel",
+					"backgroundColor": "red",
+					"cells": [	
+						{
+		                    "type": "ad",
+							"description": "Space rides",
+							"company": "NASAA",
+							"url": "nasaa.org",
+							"image": "city",
+							"backgroundColor": "green",
+						},
+						{
+		                    "type": "image",
+		                    "image": "dune",
+							"caption": "banjo",
+							"backgroundColor": "blue",
+						},
+						{
+		                    "type": "icon",
+		                    "icon": "glyph",
+							"text": "bagpipes",
+							"backgroundColor": "red",
+						},
+					]
+		        },
+				{
+					"type": "text",
+					"backgroundColor": "blue",
+					"text": "Lorem ipsum",
+					"navigation": {
+						"destination": "apple"
+					},
+				},
+				{
+					"type": "detail",
+					"backgroundColor": "green",
+					"heading-text": "Breaking News",
+					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"navigation": {
+						"destination": "carrot"
+					},
+				},
+				{
+					"type": "image",
+					"image": "mountain",
+					"caption": "This is a photo",
+					"backgroundColor": "red",
+					"navigation": {
+						"destination": "orange"
+					},
+				},
+			]
+        },
+    	{
 			"type": "form",
 			"cells": [
 				{

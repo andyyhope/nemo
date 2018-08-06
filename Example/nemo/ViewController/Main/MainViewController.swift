@@ -32,8 +32,8 @@ final class MainViewController: UIViewController, ErrorPresenting {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        prepareViewController()
         prepareTableView()
-        
         
         dataSource.request(.initial) { [weak self] result in
             switch result {
@@ -49,6 +49,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.frame = view.bounds
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,8 +67,11 @@ final class MainViewController: UIViewController, ErrorPresenting {
     
     // MARK: - Preparation
     
+    private func prepareViewController() {
+        title = model.title
+    }
+    
     private func prepareTableView() {
-        tableView.frame = view.bounds
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -133,6 +137,11 @@ extension MainViewController: UITableViewDataSource {
                 cellController.prepare(cell)
                 return cell
                 
+            case .carousel(let cellController):
+                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
             case .textField(let cellController):
                 let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
@@ -159,6 +168,11 @@ extension MainViewController: UITableViewDataSource {
                 let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
+            
+            case .carousel(let cellController):
+                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
                 
             case .textField(let cellController):
                 let cell: TextFieldCell = tableView.dequeueReusableCell(for: indexPath)
@@ -169,12 +183,8 @@ extension MainViewController: UITableViewDataSource {
                 let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
+            
             }
-        
-        case .carousel(let sectionController):
-            let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
-            sectionController.cellControllers[indexPath.row].prepare(cell)
-            return cell
             
         case .form(let sectionController):
             switch sectionController.cellControllers[indexPath.row] {
@@ -190,6 +200,11 @@ extension MainViewController: UITableViewDataSource {
                 
             case .image(let cellController):
                 let cell: ImageCell = tableView.dequeueReusableCell(for: indexPath)
+                cellController.prepare(cell)
+                return cell
+                
+            case .carousel(let cellController):
+                let cell: CarouselCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
                 
@@ -223,6 +238,8 @@ extension MainViewController: UITableViewDelegate {
                 return tableView.estimatedRowHeight
             case .image:
                 return ImageCell.defaultHeight
+            case .carousel:
+                return CarouselCell.defaultHeight
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
@@ -236,14 +253,13 @@ extension MainViewController: UITableViewDelegate {
                 return tableView.estimatedRowHeight
             case .image:
                 return ImageCell.defaultHeight
+            case .carousel:
+                return CarouselCell.defaultHeight
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
                 return SwitchFieldCell.defaultHeight
             }
-        case .carousel:
-            return CarouselCell.defaultHeight
-        
         case .form(let sectionController):
             switch sectionController.cellControllers[indexPath.row] {
             case .text:
@@ -252,6 +268,8 @@ extension MainViewController: UITableViewDelegate {
                 return tableView.estimatedRowHeight
             case .image:
                 return ImageCell.defaultHeight
+            case .carousel:
+                return CarouselCell.defaultHeight
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
@@ -278,8 +296,6 @@ extension MainViewController: UITableViewDelegate {
             default:
                 return self.tableView(tableView, heightForRowAt: indexPath)
             }
-        case .carousel:
-            return self.tableView(tableView, heightForRowAt: indexPath)
         default:
             return self.tableView(tableView, heightForRowAt: indexPath)
         }

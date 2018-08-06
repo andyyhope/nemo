@@ -12,6 +12,7 @@ enum ContentCellControllerType {
     case text(TextCellController)
     case detail(DetailCellController)
     case image(ImageCellController)
+    case carousel(CarouselCellController)
     case textField(TextFieldCellController)
     case switchField(SwitchCellController)
     
@@ -23,6 +24,8 @@ enum ContentCellControllerType {
             self = .detail(.init(entity: entity))
         case .image(let entity):
             self = .image(.init(entity: entity))
+        case .carousel(let entity):
+            self = .carousel(.init(entity: entity))
         case .textField(let entity):
             self = .textField(.init(entity: entity))
         case .switchField(let entity):
