@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TextFieldCell: UITableViewCell {
+final class TextFieldCell: UITableViewCell, NibLoadable {
 
     // MARK: - Properties
     

@@ -76,6 +76,8 @@ final class MainViewController: UIViewController, ErrorPresenting {
         tableView.register(DetailCell.self)
         tableView.register(ImageCell.self)
         tableView.register(CarouselCell.self)
+        tableView.register(TextFieldCell.self)
+        tableView.register(SwitchCell.self)
         tableView.register(SegmentSectionHeaderView.self)
         
         view.addSubview(tableView)

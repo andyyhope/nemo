@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SwitchCell: UITableViewCell {
+final class SwitchCell: UITableViewCell, NibLoadable {
 
     // MARK: - Properties
     

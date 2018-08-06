@@ -87,6 +87,7 @@
 				},
 				{
 					"type": "switchField",
+					"property": "email-subscription",
 					"label": "Subscribe to newsletter",
 					"default-value": true,
 				},
