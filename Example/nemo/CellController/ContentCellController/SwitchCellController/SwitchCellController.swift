@@ -33,7 +33,7 @@ final class SwitchCellController {
     
     // MARK: - Preparation
     
-    func prepare(_ cell: SwitchCell) {
+    func prepare(_ cell: SwitchFieldCell) {
         cell.label.text = model.labelText
         cell.switch.isOn = model.defaultValue
     }

@@ -2,74 +2,6 @@
 	"type": "main",
     "sections": [
     	{
-			"type": "segment",
-			"segments": [
-				{
-					"title": "One",
-					"cells": [
-						{
-							"type": "text",
-							"backgroundColor": "blue",
-							"text": "Lorem ipsum",
-						},
-						{
-							"type": "detail",
-							"backgroundColor": "green",
-							"heading-text": "Breaking News",
-							"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-						},
-						{
-							"type": "image",
-							"image": "mountain",
-							"caption": "This is a photo",
-							"backgroundColor": "red",
-						},
-					]
-				},
-				{
-					"title": "Two",
-					"cells": [
-						{
-							"type": "text",
-							"backgroundColor": "red",
-							"text": "Dolla Amet",
-						},
-					]
-				}
-			],
-        },
-        {
-			"type": "content",
-			"cells": [
-				{
-					"type": "text",
-					"backgroundColor": "blue",
-					"text": "Lorem ipsum",
-					"navigation": {
-						"destination": "apple"
-					},
-				},
-				{
-					"type": "detail",
-					"backgroundColor": "green",
-					"heading-text": "Breaking News",
-					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-					"navigation": {
-						"destination": "carrot"
-					},
-				},
-				{
-					"type": "image",
-					"image": "mountain",
-					"caption": "This is a photo",
-					"backgroundColor": "red",
-					"navigation": {
-						"destination": "orange"
-					},
-				},
-			]
-        },
-        {
 			"type": "form",
 			"cells": [
 				{
@@ -93,5 +25,6 @@
 				},
 			]
         },
+    	
     ]
 }

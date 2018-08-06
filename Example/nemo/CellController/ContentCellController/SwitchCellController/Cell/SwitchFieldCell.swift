@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SwitchCell: UITableViewCell, NibLoadable {
+final class SwitchFieldCell: UITableViewCell, NibLoadable {
 
     // MARK: - Properties
     
@@ -33,7 +33,7 @@ final class SwitchCell: UITableViewCell, NibLoadable {
     }
 }
 
-extension SwitchCell: HeightDefaultable {
+extension SwitchFieldCell: HeightDefaultable {
     static var defaultHeight: CGFloat {
         return 44
     }

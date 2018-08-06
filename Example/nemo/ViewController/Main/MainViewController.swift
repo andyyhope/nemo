@@ -77,7 +77,7 @@ final class MainViewController: UIViewController, ErrorPresenting {
         tableView.register(ImageCell.self)
         tableView.register(CarouselCell.self)
         tableView.register(TextFieldCell.self)
-        tableView.register(SwitchCell.self)
+        tableView.register(SwitchFieldCell.self)
         tableView.register(SegmentSectionHeaderView.self)
         
         view.addSubview(tableView)
@@ -139,7 +139,7 @@ extension MainViewController: UITableViewDataSource {
                 return cell
                 
             case .switchField(let cellController):
-                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
             }
@@ -166,7 +166,7 @@ extension MainViewController: UITableViewDataSource {
                 return cell
                 
             case .switchField(let cellController):
-                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
             }
@@ -199,7 +199,7 @@ extension MainViewController: UITableViewDataSource {
                 return cell
                 
             case .switchField(let cellController):
-                let cell: SwitchCell = tableView.dequeueReusableCell(for: indexPath)
+                let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
                 cellController.prepare(cell)
                 return cell
             }
@@ -226,7 +226,7 @@ extension MainViewController: UITableViewDelegate {
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
-                return SwitchCell.defaultHeight
+                return SwitchFieldCell.defaultHeight
             }
         case .segment(let sectionController):
             switch sectionController.selectedIndexCellControllers[indexPath.row] {
@@ -239,7 +239,7 @@ extension MainViewController: UITableViewDelegate {
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
-                return SwitchCell.defaultHeight
+                return SwitchFieldCell.defaultHeight
             }
         case .carousel:
             return CarouselCell.defaultHeight
@@ -255,7 +255,7 @@ extension MainViewController: UITableViewDelegate {
             case .textField:
                 return TextFieldCell.defaultHeight
             case .switchField:
-                return SwitchCell.defaultHeight
+                return SwitchFieldCell.defaultHeight
             }
         }
         
@@ -296,11 +296,6 @@ extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return .leastNormalMagnitude
-        
-//        switch dataSource.section(forIndex: section) {
-//        case .<#section#>:
-//            return <#Footer height#>
-//        }
     }
     
     
@@ -323,27 +318,6 @@ extension MainViewController: UITableViewDelegate {
 //        switch dataSource.section(forIndex: section) {
 //        case .<#section#>:
 //            return <#Footer view#>
-//        }
-    }
-    
-    
-    // MARK: Selection
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        switch dataSource.cellController(for: indexPath) {
-//        case .text(let cellController):
-//            
-//        case .detail(let cellController):
-//            if let destination = cellController.destination {
-//                
-//            }
-//        case .image(let cellController):
-//            if let destination = cellController.destination {
-//                
-//            }
-//
-//        default:
-//            return
 //        }
     }
 }

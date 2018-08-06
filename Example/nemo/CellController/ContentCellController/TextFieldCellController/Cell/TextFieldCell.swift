@@ -35,6 +35,6 @@ final class TextFieldCell: UITableViewCell, NibLoadable {
 
 extension TextFieldCell: HeightDefaultable {
     static var defaultHeight: CGFloat {
-        return 44
+        return 100
     }
 }
