@@ -63,6 +63,11 @@ extension CellControllerDisplayable where Self: UIViewController {
             let cell: SwitchFieldCell = tableView.dequeueReusableCell(for: indexPath)
             cellController.prepare(cell)
             return cell
+            
+        case .buttonField(let cellController):
+            let cell: ButtonFieldCell = tableView.dequeueReusableCell(for: indexPath)
+            cellController.prepare(cell)
+            return cell
         }
     }
     
@@ -89,6 +94,8 @@ extension CellControllerDisplayable where Self: UIViewController {
             return TextFieldCell.defaultHeight
         case .switchField:
             return SwitchFieldCell.defaultHeight
+        case .buttonField:
+            return ButtonFieldCell.defaultHeight
         }
     }
 }

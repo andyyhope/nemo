@@ -12,22 +12,22 @@ final class SwitchFieldCellController {
     
     // MARK: - Properties
     
-    let entity: SwitchCellEntity
-    let dataSource: SwitchCellDataSource
+    let entity: SwitchFieldCellEntity
+    let dataSource: SwitchFieldCellDataSource
     weak var formDelegate: FormUpdateDelegate?
     
     
     // MARK: - Initializer
     
-    init(entity: SwitchCellEntity) {
-        self.dataSource = SwitchCellDataSource(entity: entity)
+    init(entity: SwitchFieldCellEntity) {
+        self.dataSource = SwitchFieldCellDataSource(entity: entity)
         self.entity = entity
     }
     
     
     // MARK: - Computed Properties
     
-    var model: SwitchCellModel {
+    var model: SwitchFieldCellModel {
         return dataSource.model
     }
     

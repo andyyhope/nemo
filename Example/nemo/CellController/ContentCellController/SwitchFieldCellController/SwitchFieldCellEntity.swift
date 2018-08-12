@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SwitchCellEntity {
+struct SwitchFieldCellEntity {
     let property: String
     let label: String
     let defaultValue: Bool

@@ -80,6 +80,11 @@
 					"label": "Subscribe to newsletter",
 					"default-value": true,
 				},
+				{
+					"type": "buttonField",
+					"property": "submit",
+					"label": "Let's do it!",
+				},
 			]
         },
     	

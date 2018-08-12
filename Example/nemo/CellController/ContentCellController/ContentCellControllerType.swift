@@ -13,8 +13,11 @@ enum ContentCellControllerType {
     case detail(DetailCellController)
     case image(ImageCellController)
     case carousel(CarouselCellController)
+    
+    // Form
     case textField(TextFieldCellController)
     case switchField(SwitchFieldCellController)
+    case buttonField(ButtonFieldCellController)
     
     init(cellEntity: ContentCellEntity) {
         switch cellEntity {
@@ -30,6 +33,8 @@ enum ContentCellControllerType {
             self = .textField(.init(entity: entity))
         case .switchField(let entity):
             self = .switchField(.init(entity: entity))
+        case .buttonField(let entity):
+            self = .buttonField(.init(entity: entity))
         }
     }
 }

@@ -13,11 +13,14 @@ enum ContentCellEntity {
     case detail(DetailCellEntity)
     case image(ImageCellEntity)
     case carousel(CarouselCellEntity)
+    
+    // Form
     case textField(TextFieldCellEntity)
-    case switchField(SwitchCellEntity)
+    case switchField(SwitchFieldCellEntity)
+    case buttonField(ButtonFieldCellEntity)
     
     private enum Types: String {
-        case text, detail, image, carousel, textField, switchField
+        case text, detail, image, carousel, textField, switchField, buttonField
     }
     
     init?(json: JSON) {
@@ -43,8 +46,11 @@ enum ContentCellEntity {
             guard let entity = TextFieldCellEntity(json: json) else { fallthrough }
             self = .textField(entity)
         case .switchField:
-            guard let entity = SwitchCellEntity(json: json) else { fallthrough }
+            guard let entity = SwitchFieldCellEntity(json: json) else { fallthrough }
             self = .switchField(entity)
+        case .buttonField:
+            guard let entity = ButtonFieldCellEntity(json: json) else { fallthrough }
+            self = .buttonField(entity)
         default:
             assertionFailure("Invalid CellController identifier passed: \(type)")
             return nil

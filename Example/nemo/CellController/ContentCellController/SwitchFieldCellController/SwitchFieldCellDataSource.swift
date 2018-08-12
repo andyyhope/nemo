@@ -8,19 +8,19 @@
 
 import UIKit
 
-final class SwitchCellDataSource {
+final class SwitchFieldCellDataSource {
     
     // MARK: - Properties
     
-    let entity: SwitchCellEntity
-    var model: SwitchCellModel
+    let entity: SwitchFieldCellEntity
+    var model: SwitchFieldCellModel
     
     
     // MARK: - Initializer
     
-    init(entity: SwitchCellEntity) {
+    init(entity: SwitchFieldCellEntity) {
         self.entity = entity
-        self.model = SwitchCellModel(entity: entity)
+        self.model = SwitchFieldCellModel(entity: entity)
     }
     
     

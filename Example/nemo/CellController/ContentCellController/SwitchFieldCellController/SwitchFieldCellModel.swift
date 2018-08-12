@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class SwitchCellModel {
+final class SwitchFieldCellModel {
     
     // MARK: - Properties
     
-    let entity: SwitchCellEntity
+    let entity: SwitchFieldCellEntity
     
     
     // MARK: - Initializer
     
-    init(entity: SwitchCellEntity) {
+    init(entity: SwitchFieldCellEntity) {
         self.entity = entity
     }
     
