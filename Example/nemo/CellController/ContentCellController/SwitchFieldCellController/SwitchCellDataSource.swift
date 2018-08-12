@@ -25,7 +25,9 @@ final class SwitchCellDataSource {
     
     
     // MARK: - Computered Properties
-    
-    
+
+    var property: String {
+        return entity.property
+    }
 }
 

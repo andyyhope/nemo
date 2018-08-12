@@ -14,16 +14,16 @@ final class TextFieldCellDataSource {
     
     let entity: TextFieldCellEntity
     var model: TextFieldCellModel
-    var property: String
     
     // MARK: - Initializer
     
     init(entity: TextFieldCellEntity) {
         self.entity = entity
         self.model = TextFieldCellModel(entity: entity)
-        self.property = ""
     }
     
-    
+    var property: String {
+        return entity.property
+    }
 }
 

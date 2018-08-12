@@ -31,4 +31,8 @@ final class TextFieldCellModel {
     var placeholderText: String? {
         return entity.placeholder
     }
+    
+    var isSecureTextEntry: Bool {
+        return entity.isSecureTextEntry
+    }
 }

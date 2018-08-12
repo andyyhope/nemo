@@ -76,9 +76,6 @@ final class MainViewController: UIViewController, ErrorPresenting, CellControlle
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = model.backgroundColor
-        
-        
-        
         view.addSubview(tableView)
         registerCells(for: tableView)
         registerViews(for: tableView)
@@ -92,7 +89,6 @@ extension MainViewController: UITableViewDataSource {
     // MARK: Data
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(dataSource.numberOfSections)
         return dataSource.numberOfSections
     }
     

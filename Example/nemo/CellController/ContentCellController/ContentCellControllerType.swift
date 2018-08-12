@@ -14,7 +14,7 @@ enum ContentCellControllerType {
     case image(ImageCellController)
     case carousel(CarouselCellController)
     case textField(TextFieldCellController)
-    case switchField(SwitchCellController)
+    case switchField(SwitchFieldCellController)
     
     init(cellEntity: ContentCellEntity) {
         switch cellEntity {

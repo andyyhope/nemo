@@ -8,19 +8,20 @@
 
 import UIKit
 
-final class TextFieldCellController {
+final class TextFieldCellController: FormFieldHandling {
     
     // MARK: - Properties
     
     let entity: TextFieldCellEntity
     let dataSource: TextFieldCellDataSource
-    
+    weak var formDelegate: FormUpdateDelegate?
     
     // MARK: - Initializer
     
     init(entity: TextFieldCellEntity) {
         self.entity = entity
         self.dataSource = TextFieldCellDataSource(entity: entity)
+        self.formDelegate = nil
     }
     
     
@@ -36,10 +37,20 @@ final class TextFieldCellController {
     func prepare(_ cell: TextFieldCell) {
         cell.label.text = model.labelText
         cell.textField.placeholder = model.placeholderText
-        prepareBindings(for: cell)
+        cell.textField.isSecureTextEntry = model.isSecureTextEntry
+        cell.textField.addTarget(self, action: #selector(formElementDidUpdate(sender:)), for: .editingChanged)
     }
     
-    private func prepareBindings(for cell: TextFieldCell) {
-        
+    
+    // MARK: - Selector
+    
+    @objc func formElementDidUpdate(sender: Any) {
+        guard
+            let sender = sender as? UITextField,
+            let text = sender.text
+            else { return }
+    
+        formDelegate?.formDidUpdate(
+            for: .field(property: dataSource.property, value: text))
     }
 }

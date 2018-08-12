@@ -12,7 +12,7 @@ struct TextFieldCellEntity {
     let property: String
     let label: String
     let placeholder: String?
-    let isPassword: Bool
+    let isSecureTextEntry: Bool
     
     init?(json: JSON) {
         guard
@@ -23,6 +23,6 @@ struct TextFieldCellEntity {
         self.label = label
         self.property = property
         self.placeholder = json["placeholder"] as? String
-        self.isPassword = json["is-password"] as? Bool ?? false
+        self.isSecureTextEntry = json["is-password"] as? Bool ?? false
     }
 }
