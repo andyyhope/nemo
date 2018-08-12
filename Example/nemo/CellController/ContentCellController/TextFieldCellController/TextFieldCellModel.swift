@@ -12,14 +12,15 @@ final class TextFieldCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
+    var state: ViewState
     let entity: TextFieldCellEntity
-    
+    var text: String?
     
     // MARK: - Initializer
     
     init(entity: TextFieldCellEntity) {
         self.entity = entity
+        self.state = .enabled
     }
     
     // MARK: - Computed Properties
@@ -34,5 +35,15 @@ final class TextFieldCellModel {
     
     var isSecureTextEntry: Bool {
         return entity.isSecureTextEntry
+    }
+    
+    var isEnabled: Bool {
+        return state == .enabled
+    }
+}
+
+extension TextFieldCellModel: ViewStateManageable {
+    enum ViewState {
+        case enabled, disabled
     }
 }

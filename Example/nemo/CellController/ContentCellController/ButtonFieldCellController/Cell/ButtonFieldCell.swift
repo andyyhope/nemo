@@ -15,8 +15,17 @@ final class ButtonFieldCell: UITableViewCell, NibLoadable {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var button: UIButton! {
+        didSet {
+            button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        }
+    }
     
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView! {
+        didSet {
+            activityIndicatorView.hidesWhenStopped = true
+        }
+    }
     
     // MARK: - View Lifecycle
     

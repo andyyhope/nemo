@@ -13,7 +13,7 @@ extension MainViewController {
     typealias Model = MainViewModel
 }
 
-final class MainViewController: UIViewController, ErrorPresenting, CellControllerDisplayable, SectionControllerDisplayable {
+final class MainViewController: UIViewController, CellControllerDisplayable, SectionControllerDisplayable {
     
     // MARK: - Properties
     
@@ -41,6 +41,7 @@ final class MainViewController: UIViewController, ErrorPresenting, CellControlle
                 break
             case .completed:
                 self?.tableView.reloadData()
+                self?.updateDelegates()
             case .failed(let failure):
                 self?.presentError(withMessage: failure.description)
             }
@@ -79,6 +80,26 @@ final class MainViewController: UIViewController, ErrorPresenting, CellControlle
         view.addSubview(tableView)
         registerCells(for: tableView)
         registerViews(for: tableView)
+    }
+    
+    // MARK: - Delegates
+    
+    private func updateDelegates() {
+        let sectionControllers = Array(0 ..< dataSource.numberOfSections)
+            .map { dataSource.sectionController(forIndex: $0) }
+        
+        sectionControllers.forEach {
+            switch $0 {
+            case .form(let sectionController):
+                sectionController.delegate = self
+            case .segment(let sectionController):
+                sectionController.delegate = self
+            default:
+                return
+            }
+        }
+        
+        
     }
 }
 
@@ -150,5 +171,29 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sectionController = dataSource.sectionController(forIndex: section)
         return self.tableView(tableView, footerViewFor: sectionController, atIndex: section)
+    }
+}
+
+extension MainViewController: FormSectionControllerDelegate {
+    
+    func formSectionController(_ sectionController: FormSectionController, didUpdate state: State) {
+        
+        switch state {
+        case .loading:
+            tableView.reloadData()
+        case .completed:
+            presentSuccess(withMessage: "Form Submitted")
+            tableView.reloadData()
+        case .failed(let error):
+            presentError(withMessage: error.description)
+        }
+        
+    }
+}
+
+extension MainViewController: SegmentSectionControllerDelegate {
+    
+    func segmentSectionControllerDidUpdate() {
+        tableView.reloadData()
     }
 }

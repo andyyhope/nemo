@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class SegmentSectionController {
+final class SegmentSectionController {
     let entity: SegmentSectionEntity
     let dataSource: SegmentSectionDataSource
+    weak var delegate: SegmentSectionControllerDelegate?
     
     var model: SegmentSectionModel {
         return dataSource.model
@@ -48,4 +49,9 @@ class SegmentSectionController {
     @objc func segmentedControlValueChanged(sender: UISegmentedControl) {
         dataSource.updateSelectedIndex(sender.selectedSegmentIndex)
     }
+}
+
+protocol SegmentSectionControllerDelegate: class {
+    
+    func segmentSectionControllerDidUpdate()
 }

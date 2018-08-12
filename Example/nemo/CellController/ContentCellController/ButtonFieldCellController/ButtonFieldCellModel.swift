@@ -12,7 +12,7 @@ final class ButtonFieldCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
+    var state: ViewState
     let entity: ButtonFieldCellEntity
     
     
@@ -20,26 +20,38 @@ final class ButtonFieldCellModel {
     
     init(entity: ButtonFieldCellEntity) {
         self.entity = entity
+        self.state = .enabled
     }
     
     // MARK: - Computed Properties
     
     var buttonTitleText: String {
-        return entity.label
+        return isEnabled ? entity.label : "Please wait..."
     }
     
     var backgroundColor: UIColor {
-        return ColorFactory(string: entity.backgroundColor).color
+        return ColorFactory(string: entity.backgroundColor ?? "").color
     }
     
     var buttonColor: UIColor {
-        return ColorFactory(string: entity.buttonColor).color
+        return ColorFactory(string: entity.buttonColor ?? "").color
     }
-
+    
+    var buttonLabelColor: UIColor {
+        return ColorFactory(string: entity.buttonLabelColor ?? "").color
+    }
+    
+    var isEnabled: Bool {
+        return state == .enabled
+    }
+    
+    var isActivityIndicatorAnimating: Bool {
+        return !isEnabled
+    }
 }
 
-//extension ButtonFieldCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
-//}
+extension ButtonFieldCellModel: ViewStateManageable {
+    enum ViewState {
+        case enabled, disabled
+    }
+}

@@ -8,20 +8,20 @@
 
 import UIKit
 
-final class TextFieldCellController: FormFieldHandling {
+final class TextFieldCellController {
     
     // MARK: - Properties
     
     let entity: TextFieldCellEntity
     let dataSource: TextFieldCellDataSource
-    weak var formDelegate: FormUpdateDelegate?
+    weak var delegate: FormCellControllerDelegate?
     
     // MARK: - Initializer
     
     init(entity: TextFieldCellEntity) {
         self.entity = entity
         self.dataSource = TextFieldCellDataSource(entity: entity)
-        self.formDelegate = nil
+        self.delegate = nil
     }
     
     
@@ -36,21 +36,32 @@ final class TextFieldCellController: FormFieldHandling {
     
     func prepare(_ cell: TextFieldCell) {
         cell.label.text = model.labelText
+        cell.textField.text = model.text
         cell.textField.placeholder = model.placeholderText
         cell.textField.isSecureTextEntry = model.isSecureTextEntry
         cell.textField.addTarget(self, action: #selector(formElementDidUpdate(sender:)), for: .editingChanged)
+        cell.textField.isEnabled = model.isEnabled
     }
-    
-    
-    // MARK: - Selector
+}
+
+extension TextFieldCellController: FormFieldHandling {
     
     @objc func formElementDidUpdate(sender: Any) {
         guard
             let sender = sender as? UITextField,
             let text = sender.text
             else { return }
-    
-        formDelegate?.formDidUpdate(
+        
+        dataSource.setFormValue(text)
+        delegate?.formDidUpdate(
             for: .field(property: dataSource.property, value: text))
+    }
+    
+    func clearFormField() {
+        dataSource.setFormValue(nil)
+    }
+    
+    func setInteractionEnabled(_ isInteractionEnabled: Bool) {
+        model.state = isInteractionEnabled ? .enabled : .disabled
     }
 }

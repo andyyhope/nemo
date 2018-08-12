@@ -29,6 +29,7 @@ extension CellControllerDisplayable where Self: UIViewController {
         tableView.register(CarouselCell.self)
         tableView.register(TextFieldCell.self)
         tableView.register(SwitchFieldCell.self)
+        tableView.register(ButtonFieldCell.self)
     }
     
     func tableView(_ tableView: UITableView, cellFor cellController: ContentCellControllerType, at indexPath: IndexPath) -> UITableViewCell {

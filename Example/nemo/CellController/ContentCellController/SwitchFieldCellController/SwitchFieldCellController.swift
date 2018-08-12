@@ -14,7 +14,7 @@ final class SwitchFieldCellController {
     
     let entity: SwitchFieldCellEntity
     let dataSource: SwitchFieldCellDataSource
-    weak var formDelegate: FormUpdateDelegate?
+    weak var delegate: FormCellControllerDelegate?
     
     
     // MARK: - Initializer
@@ -36,8 +36,12 @@ final class SwitchFieldCellController {
     
     func prepare(_ cell: SwitchFieldCell) {
         cell.label.text = model.labelText
-        cell.switch.isOn = model.defaultValue
+        cell.switch.isOn = model.isOn
         cell.switch.addTarget(self, action: #selector(formElementDidUpdate(sender:)), for: .valueChanged)
+        cell.switch.isEnabled = model.isEnabled
+        
+        delegate?.formDidUpdate(
+            for: .field(property: dataSource.property, value: model.isOn))
     }
 }
 
@@ -46,11 +50,16 @@ extension SwitchFieldCellController: FormFieldHandling {
     @objc func formElementDidUpdate(sender: Any) {
         guard let sender = sender as? UISwitch else { return }
         
-        formDelegate?.formDidUpdate(
+        dataSource.setFormValue(sender.isOn)
+        delegate?.formDidUpdate(
             for: .field(property: dataSource.property, value: sender.isOn))
     }
     
-    func setFormDelegate(_ delegate: FormUpdateDelegate) {
-        self.formDelegate = delegate
+    func clearFormField() {
+        dataSource.setFormValue(nil)
+    }
+    
+    func setInteractionEnabled(_ isInteractionEnabled: Bool) {
+        model.state = isInteractionEnabled ? .enabled : .disabled
     }
 }

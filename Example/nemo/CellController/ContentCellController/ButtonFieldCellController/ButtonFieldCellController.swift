@@ -13,6 +13,7 @@ final class ButtonFieldCellController {
     // MARK: - Properties
     
     let dataSource: ButtonFieldCellDataSource
+    weak var delegate: FormCellControllerDelegate?
     
     
     // MARK: - Initializer
@@ -37,11 +38,31 @@ final class ButtonFieldCellController {
     
     func prepare(_ cell: ButtonFieldCell) {
         cell.button.setTitle(model.buttonTitleText, for: .normal)
+        cell.button.backgroundColor = model.buttonColor
+        cell.button.addTarget(self, action: #selector(formElementDidUpdate(sender:)), for: .touchUpInside)
+        cell.button.tintColor = model.buttonLabelColor
+        cell.activityIndicatorView.color = model.buttonLabelColor
+        cell.button.isEnabled = model.isEnabled
+        model.isActivityIndicatorAnimating
+            ? cell.activityIndicatorView.startAnimating()
+            : cell.activityIndicatorView.stopAnimating()
+    }
+}
+
+extension ButtonFieldCellController: FormFieldHandling {
+    @objc func formElementDidUpdate(sender: Any) {
+        let type: FormFieldType = entity.property == .submit
+            ? .submit
+            : .cancel
         
-//        prepareBindings(for: cell)
+        delegate?.formDidUpdate(for: type)
     }
     
-//    private func prepareBindings(for cell: ButtonFieldCell) {
-//        
-//    }
+    func clearFormField() {
+        
+    }
+    
+    func setInteractionEnabled(_ isInteractionEnabled: Bool) {
+        model.state = isInteractionEnabled ? .enabled : .disabled
+    }
 }

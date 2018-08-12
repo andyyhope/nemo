@@ -15,7 +15,7 @@ final class FormSectionDataSource {
     let entity: FormSectionEntity
     var model: FormSectionModel
     var state: State
-    
+    private var postJSON: JSON
     
     // MARK: - Initializer
     
@@ -23,12 +23,13 @@ final class FormSectionDataSource {
         self.entity = entity
         self.state = .loading
         self.model = FormSectionModel(entity: entity)
+        self.postJSON = [:]
     }
     
-    // MARK: - Computered Properties
+    // MARK: - POST request
     
-    private var postJSON: JSON {
-        return [:]
+    func setPost(property: String, value: Any) {
+        postJSON[property] = value
     }
 }
 
@@ -38,7 +39,7 @@ extension FormSectionDataSource: Requesting {
         case submit
     }
     
-    func request(_ request: Request, completion: @escaping CompletionClosure) {
+    func request(_ request: Request, completion: @escaping ResultClosure) {
         state = .loading
         
         switch request {
@@ -47,13 +48,9 @@ extension FormSectionDataSource: Requesting {
         }
     }
     
-    private func requestSubmit(_ completion: @escaping CompletionClosure) {
-        switch Requester.submit(.submitForm(postJSON)) {
-        case .success:
-            state = .completed
-        case .failure(let error):
-            state = .failed(.unknown(error))
-            
+    private func requestSubmit(_ completion: @escaping ResultClosure) {
+        Requester.submit(.submitForm(postJSON)) { [weak self] in
+            completion($0)
         }
     }
 }

@@ -44,7 +44,13 @@ struct Requester {
         }
     }
     
-    static func submit(_ submit: Submit) -> Result<JSON> {
-        return .success([:])
+    static func submit(_ submit: Submit, completion: @escaping ResultClosure) {
+        switch submit {
+        case .submitForm(let json):
+            print("Submitting:\n\(json)")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            completion(.success(""))
+        }
     }
 }

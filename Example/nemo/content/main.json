@@ -84,6 +84,8 @@
 					"type": "buttonField",
 					"property": "submit",
 					"label": "Let's do it!",
+					"buttonColor": "red",
+					"buttonLabelColor": "white",
 				},
 			]
         },

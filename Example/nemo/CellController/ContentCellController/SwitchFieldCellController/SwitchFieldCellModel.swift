@@ -13,12 +13,14 @@ final class SwitchFieldCellModel {
     // MARK: - Properties
     
     let entity: SwitchFieldCellEntity
-    
+    var value: Bool?
+    var state: ViewState
     
     // MARK: - Initializer
     
     init(entity: SwitchFieldCellEntity) {
         self.entity = entity
+        self.state = .enabled
     }
     
     // MARK: - Computed Properties
@@ -27,7 +29,17 @@ final class SwitchFieldCellModel {
         return entity.label
     }
     
-    var defaultValue: Bool {
-        return entity.defaultValue
+    var isOn: Bool {
+        return value ?? entity.defaultValue
+    }
+    
+    var isEnabled: Bool {
+        return state == .enabled
+    }
+}
+
+extension SwitchFieldCellModel: ViewStateManageable {
+    enum ViewState {
+        case enabled, disabled
     }
 }

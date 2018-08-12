@@ -15,12 +15,14 @@ final class SwitchFieldCellDataSource {
     let entity: SwitchFieldCellEntity
     var model: SwitchFieldCellModel
     
+    internal (set) var formValue: Any?
     
     // MARK: - Initializer
     
     init(entity: SwitchFieldCellEntity) {
         self.entity = entity
         self.model = SwitchFieldCellModel(entity: entity)
+        self.formValue = entity.defaultValue
     }
     
     
@@ -31,3 +33,10 @@ final class SwitchFieldCellDataSource {
     }
 }
 
+extension SwitchFieldCellDataSource: FormFieldValueStoring {
+    
+    func setFormValue(_ value: Any?) {
+        formValue = value
+        model.value = formValue as? Bool
+    }
+}
