@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+private let defaultFooterHeight: CGFloat = 16
+
 protocol SectionControllerDisplayable {
     func registerViews(for tableView: UITableView)
     
@@ -37,7 +39,7 @@ extension SectionControllerDisplayable where Self: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, sectionFooterHeightFor sectionController: SectionControllerType) -> CGFloat {
-        return .leastNormalMagnitude
+        return defaultFooterHeight
     }
     
     

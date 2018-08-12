@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+protocol SegmentSectionControllerDelegate: class {
+    
+    func segmentSectionControllerDidUpdate(_ sectionController: SegmentSectionController)
+}
+
 final class SegmentSectionController {
     let entity: SegmentSectionEntity
     let dataSource: SegmentSectionDataSource
@@ -32,7 +37,6 @@ final class SegmentSectionController {
     }
     
     func prepare(_ view: SegmentSectionHeaderView) {
-    
         model.titles.enumerated()
             .forEach { view.segmentedControl.setTitle($1, forSegmentAt: $0) }
         
@@ -42,16 +46,8 @@ final class SegmentSectionController {
             for: .valueChanged)
     }
     
-    func sectionUpdated(update: () -> Void) {
-        update()
-    }
-    
     @objc func segmentedControlValueChanged(sender: UISegmentedControl) {
         dataSource.updateSelectedIndex(sender.selectedSegmentIndex)
+        delegate?.segmentSectionControllerDidUpdate(self)
     }
-}
-
-protocol SegmentSectionControllerDelegate: class {
-    
-    func segmentSectionControllerDidUpdate()
 }

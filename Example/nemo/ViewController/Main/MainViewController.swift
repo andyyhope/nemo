@@ -177,7 +177,6 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: FormSectionControllerDelegate {
     
     func formSectionController(_ sectionController: FormSectionController, didUpdate state: State) {
-        
         switch state {
         case .loading:
             tableView.reloadData()
@@ -187,13 +186,12 @@ extension MainViewController: FormSectionControllerDelegate {
         case .failed(let error):
             presentError(withMessage: error.description)
         }
-        
     }
 }
 
 extension MainViewController: SegmentSectionControllerDelegate {
     
-    func segmentSectionControllerDidUpdate() {
+    func segmentSectionControllerDidUpdate(_ sectionController: SegmentSectionController) {
         tableView.reloadData()
     }
 }

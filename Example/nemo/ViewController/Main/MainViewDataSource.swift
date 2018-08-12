@@ -16,11 +16,7 @@ final class MainViewDataSource {
     
     // MARK: - Properties
     
-    var entity: MainEntity? {
-        didSet {
-            
-        }
-    }
+    var entity: MainEntity?
     var state: State
     var model: MainViewModel
     private var sectionControllers: [SectionControllerType]
@@ -50,17 +46,6 @@ final class MainViewDataSource {
         case .form(let sectionController):
             return sectionController.cellControllers.count
         }
-        
-        
-//        return cellControllers.count
-        
-//        guard entity != nil else { return 0 }
-//        switch sectionController(forIndex: section) {
-//        case .content(let cellControllers):
-//            return cellControllers.count
-//        case .footer(let cellControllers):
-//            return cellControllers.count
-//        }
     }
     
     func sectionController(forIndex index: Int) -> SectionControllerType {
@@ -86,8 +71,6 @@ final class MainViewDataSource {
         self.entity = entity
         self.sectionControllers = entity.sections
             .compactMap { SectionControllerType(sectionEntity: $0) }
-//        cellControllers = entity.entities
-//            .map { ContentCellControllerType(cellEntity: $0) }
     }
 }
 
