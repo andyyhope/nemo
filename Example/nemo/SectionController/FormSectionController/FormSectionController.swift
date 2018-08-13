@@ -118,22 +118,21 @@ extension FormSectionController: FormCellControllerDelegate {
     private func submitForm() {
         setFormsInteractionEnabled(false)
         delegate?.formSectionController(self, didUpdate: .loading)
-        dataSource.request(.submit) { [weak self]  in
-            guard let `self` = self else { return }
-            switch $0 {
-            case .success:
-                self.setFormsInteractionEnabled(true)
-                self.clearForms()
-                self.delegate?.formSectionController(self, didUpdate: .completed)
-            case .failure(let error):
-                self.setFormsInteractionEnabled(true)
-                self.delegate?.formSectionController(self, didUpdate: .failed(.unknown(error)))
-            }
+        dataSource.request(.submit) { [weak self] in
+            self?.handleSubmitForm(for: $0)
         }
     }
     
-    private func handleSubmitForm(for: State) {
-        
+    private func handleSubmitForm(for result: Result<String>) {
+        switch result {
+        case .success:
+            setFormsInteractionEnabled(true)
+            clearForms()
+            delegate?.formSectionController(self, didUpdate: .completed)
+        case .failure(let error):
+            setFormsInteractionEnabled(true)
+            delegate?.formSectionController(self, didUpdate: .failed(.unknown(error)))
+        }
     }
 }
 

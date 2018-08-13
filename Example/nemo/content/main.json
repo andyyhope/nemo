@@ -58,6 +58,7 @@
         },
     	{
 			"type": "content",
+			"title": "Related Content",
 			"cells": [
 				{
 					"type": "carousel",

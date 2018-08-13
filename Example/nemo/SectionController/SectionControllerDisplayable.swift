@@ -27,10 +27,15 @@ extension SectionControllerDisplayable where Self: UIViewController {
     
     func registerViews(for tableView: UITableView) {
         tableView.register(SegmentSectionHeaderView.self)
+        tableView.register(ContentSectionHeaderView.self)
     }
     
     func tableView(_ tableView: UITableView, sectionHeaderHeightFor sectionController: SectionControllerType) -> CGFloat {
         switch sectionController {
+        case .content(let sectionController):
+            return sectionController.model.titleLabelText != nil
+                ? ContentSectionHeaderView.defaultHeight
+                : .leastNormalMagnitude
         case .segment:
             return SegmentSectionHeaderView.defaultHeight
         default:
@@ -45,10 +50,17 @@ extension SectionControllerDisplayable where Self: UIViewController {
     
     func tableView(_ tableView: UITableView, headerViewFor sectionController: SectionControllerType, atIndex index: Int) -> UIView? {
         switch sectionController {
+        case .content(let sectionController):
+            guard sectionController.model.titleLabelText != nil else { return nil }
+            let view: ContentSectionHeaderView = tableView.dequeueReusableView()
+            sectionController.prepare(view)
+            return view
+        
         case .segment(let sectionController):
             let view: SegmentSectionHeaderView = tableView.dequeueReusableView()
             sectionController.prepare(view)
             return view
+        
         default:
             return nil
         }
