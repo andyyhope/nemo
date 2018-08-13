@@ -43,6 +43,7 @@ final class CarouselCellController: NSObject {
         collectionView.delegate = self
         collectionView.backgroundColor = model.backgroundColor
         collectionView.collectionViewLayout = model.layout
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(AdCarouselCell.self)
         collectionView.register(IconCarouselCell.self)
         collectionView.register(ImageCarouselCell.self)

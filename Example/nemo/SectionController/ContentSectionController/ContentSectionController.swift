@@ -22,7 +22,7 @@ struct ContentSectionController {
     }
     
     func prepare(_ view: ContentSectionHeaderView) {
-        view.headingLabel.text = model.titleLabelText
+        view.titleLabel.text = model.titleLabelText
     }
 }
 

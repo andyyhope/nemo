@@ -15,7 +15,7 @@ class CarouselCell: UITableViewCell, NibLoadable {
     }
     
     static var edgeInsets: UIEdgeInsets {
-        return .init(top: inset, left: inset, bottom: inset, right: inset)
+        return .init(top: inset, left: inset * 2, bottom: inset, right: inset * 2)
     }
     
     @IBOutlet weak var collectionView: UICollectionView!

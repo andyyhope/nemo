@@ -10,10 +10,10 @@ import UIKit
 
 final class ContentSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
 
-    @IBOutlet weak var headingLabel: UILabel! {
+    @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            headingLabel.text = nil
-            headingLabel.font = .boldSystemFont(ofSize: 32)
+            titleLabel.text = nil
+            titleLabel.font = .systemFont(ofSize: 32, weight: .heavy)
         }
     }
     
