@@ -10,8 +10,16 @@ import UIKit
 
 class DetailCell: UITableViewCell, NibLoadable {
 
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var headingLabel: UILabel! {
+        didSet {
+            headingLabel.numberOfLines = 0
+        }
+    }
+    @IBOutlet weak var detailLabel: UILabel! {
+        didSet {
+            detailLabel.numberOfLines = 0
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
