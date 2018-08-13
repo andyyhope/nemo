@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ContentSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
+final class SectionTitleHeaderView: UITableViewHeaderFooterView, NibLoadable {
 
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
@@ -22,7 +22,7 @@ final class ContentSectionHeaderView: UITableViewHeaderFooterView, NibLoadable {
     }
 }
 
-extension ContentSectionHeaderView: HeightDefaultable {
+extension SectionTitleHeaderView: HeightDefaultable {
     static var defaultHeight: CGFloat {
         return 60
     }

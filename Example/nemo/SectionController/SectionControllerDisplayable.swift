@@ -27,14 +27,14 @@ extension SectionControllerDisplayable where Self: UIViewController {
     
     func registerViews(for tableView: UITableView) {
         tableView.register(SegmentSectionHeaderView.self)
-        tableView.register(ContentSectionHeaderView.self)
+        tableView.register(SectionTitleHeaderView.self)
     }
     
     func tableView(_ tableView: UITableView, sectionHeaderHeightFor sectionController: SectionControllerType) -> CGFloat {
         switch sectionController {
         case .content(let sectionController):
             return sectionController.model.titleLabelText != nil
-                ? ContentSectionHeaderView.defaultHeight
+                ? SectionTitleHeaderView.defaultHeight
                 : .leastNormalMagnitude
         
         case .segment:
@@ -42,7 +42,7 @@ extension SectionControllerDisplayable where Self: UIViewController {
         
         case .form(let sectionController):
             return sectionController.model.titleLabelText != nil
-                ? ContentSectionHeaderView.defaultHeight
+                ? SectionTitleHeaderView.defaultHeight
                 : .leastNormalMagnitude
         }
     }
@@ -56,7 +56,7 @@ extension SectionControllerDisplayable where Self: UIViewController {
         switch sectionController {
         case .content(let sectionController):
             guard sectionController.model.titleLabelText != nil else { return nil }
-            let view: ContentSectionHeaderView = tableView.dequeueReusableView()
+            let view: SectionTitleHeaderView = tableView.dequeueReusableView()
             sectionController.prepare(view)
             return view
         
@@ -67,7 +67,7 @@ extension SectionControllerDisplayable where Self: UIViewController {
             
         case .form(let sectionController):
             guard sectionController.model.titleLabelText != nil else { return nil }
-            let view: ContentSectionHeaderView = tableView.dequeueReusableView()
+            let view: SectionTitleHeaderView = tableView.dequeueReusableView()
             sectionController.prepare(view)
             return view
         }

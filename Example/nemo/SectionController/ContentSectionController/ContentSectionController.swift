@@ -21,7 +21,7 @@ struct ContentSectionController {
         self.model = ContentSectionModel(entity: entity)
     }
     
-    func prepare(_ view: ContentSectionHeaderView) {
+    func prepare(_ view: SectionTitleHeaderView) {
         view.titleLabel.text = model.titleLabelText
     }
 }
