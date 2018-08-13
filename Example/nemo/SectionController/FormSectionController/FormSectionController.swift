@@ -60,8 +60,8 @@ final class FormSectionController {
     
     // MARK: - Preparation
     
-    func prepare(_ view: FormSectionHeaderView) {
-        
+    func prepare(_ view: ContentSectionHeaderView) {
+        view.titleLabel.text = model.titleLabelText
     }
     
     private func clearForms() {

@@ -36,10 +36,14 @@ extension SectionControllerDisplayable where Self: UIViewController {
             return sectionController.model.titleLabelText != nil
                 ? ContentSectionHeaderView.defaultHeight
                 : .leastNormalMagnitude
+        
         case .segment:
             return SegmentSectionHeaderView.defaultHeight
-        default:
-            return .leastNormalMagnitude
+        
+        case .form(let sectionController):
+            return sectionController.model.titleLabelText != nil
+                ? ContentSectionHeaderView.defaultHeight
+                : .leastNormalMagnitude
         }
     }
     
@@ -60,9 +64,12 @@ extension SectionControllerDisplayable where Self: UIViewController {
             let view: SegmentSectionHeaderView = tableView.dequeueReusableView()
             sectionController.prepare(view)
             return view
-        
-        default:
-            return nil
+            
+        case .form(let sectionController):
+            guard sectionController.model.titleLabelText != nil else { return nil }
+            let view: ContentSectionHeaderView = tableView.dequeueReusableView()
+            sectionController.prepare(view)
+            return view
         }
     }
     

@@ -25,8 +25,8 @@ final class FormSectionModel {
     
     // MARK: - Computed Properties
     
-    var titleLabelText: String {
-        return "Registration"
+    var titleLabelText: String? {
+        return entity.title
     }
 }
 

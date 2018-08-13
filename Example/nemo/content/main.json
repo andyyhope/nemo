@@ -109,6 +109,7 @@
         },
     	{
 			"type": "form",
+			"title": "Subscribe today",
 			"cells": [
 				{
 					"type": "textField",
