@@ -9,16 +9,15 @@
 import Foundation
 
 struct TextCellEntity {
-    let backgroundColor: String
     let text: String
+    let backgroundColor: String?
     
     init?(json: JSON) {
         guard
-            let text = json["text"] as? String,
-            let backgroundColor = json["backgroundColor"] as? String
+            let text = json["text"] as? String
             else { return nil }
         
         self.text = text
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = json["backgroundColor"] as? String
     }
 }

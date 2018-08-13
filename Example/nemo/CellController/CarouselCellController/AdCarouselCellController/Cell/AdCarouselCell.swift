@@ -18,6 +18,7 @@ class AdCarouselCell: UICollectionViewCell, NibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        updateCornerRadii()
     }
 }
 

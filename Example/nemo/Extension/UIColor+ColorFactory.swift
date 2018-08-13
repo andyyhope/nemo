@@ -13,4 +13,8 @@ extension UIColor {
     static func color(forColor string: String) -> UIColor {
         return ColorFactory(string: string).color
     }
+    
+    static var defaultBackgroundColor: UIColor {
+        return .white
+    }
 }

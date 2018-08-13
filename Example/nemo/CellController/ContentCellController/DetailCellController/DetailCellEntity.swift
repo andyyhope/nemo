@@ -11,17 +11,16 @@ import Foundation
 struct DetailCellEntity {
     let detail: String
     let heading: String
-    let backgroundColor: String
+    let backgroundColor: String?
     
     init?(json: JSON) {
         guard
             let heading = json["heading-text"] as? String,
-            let detail = json["detail-text"] as? String,
-            let backgroundColor = json["backgroundColor"] as? String
+            let detail = json["detail-text"] as? String
             else { return nil }
         
         self.heading = heading
         self.detail = detail
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = json["backgroundColor"] as? String
     }
 }

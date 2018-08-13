@@ -30,7 +30,12 @@ final class TextCellModel {
     }
     
     var backgroundColor: UIColor {
-        return .color(forColor: entity.backgroundColor)
+        if let color = entity.backgroundColor{
+            return .color(forColor: color)
+        }
+        else {
+            return .defaultBackgroundColor
+        }
     }
 }
 //
