@@ -25,8 +25,28 @@ final class TextCellModel {
     
     // MARK: - Computed Properties
     
-    var headingLabelText: String {
-        return entity.text
+    var image: UIImage? {
+        return UIImage(named: entity.image ?? "")
+    }
+    
+    var headingLabelAttributedText: NSAttributedString {
+        let mutableString = NSMutableAttributedString(attributedString: headingAttributedString)
+        mutableString.append(subheadingAttributedString)
+        return mutableString
+    }
+    
+    private var headingAttributedString: NSAttributedString {
+        return NSAttributedString(
+            string: entity.text,
+            attributes: [.font: UIFont.boldSystemFont(ofSize: 16)])
+    }
+    
+    private var subheadingAttributedString: NSAttributedString {
+        return NSAttributedString(
+            string: entity.subtext != nil ? "\n\(entity.subtext!)" : "",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 14),
+                .foregroundColor: UIColor.lightGray])
     }
     
     var backgroundColor: UIColor {

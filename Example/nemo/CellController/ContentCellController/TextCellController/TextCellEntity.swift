@@ -10,7 +10,9 @@ import Foundation
 
 struct TextCellEntity {
     let text: String
+    let subtext: String?
     let backgroundColor: String?
+    let image: String?
     
     init?(json: JSON) {
         guard
@@ -18,6 +20,8 @@ struct TextCellEntity {
             else { return nil }
         
         self.text = text
+        self.subtext = json["subtext"] as? String
         self.backgroundColor = json["backgroundColor"] as? String
+        self.image = json["image"] as? String
     }
 }

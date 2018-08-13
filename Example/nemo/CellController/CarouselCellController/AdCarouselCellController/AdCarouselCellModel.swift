@@ -12,7 +12,6 @@ final class AdCarouselCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: AdCarouselCellEntity
     
     
@@ -41,10 +40,4 @@ final class AdCarouselCellModel {
     var image: UIImage? {
         return UIImage(named: entity.imageName)
     }
-//}
-//
-//extension AdCarouselCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
 }

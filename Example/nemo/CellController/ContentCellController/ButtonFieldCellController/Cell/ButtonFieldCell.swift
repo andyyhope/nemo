@@ -18,6 +18,7 @@ final class ButtonFieldCell: UITableViewCell, NibLoadable {
     @IBOutlet weak var button: UIButton! {
         didSet {
             button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+            button.updateCornerRadii()
         }
     }
     

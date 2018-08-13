@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,23 +20,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YpD-PX-OWC">
-                        <rect key="frame" x="16" y="16" width="288" height="47.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ybV-fC-hsC">
+                        <rect key="frame" x="16" y="8" width="64.5" height="63.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ybV-fC-hsC" secondAttribute="height" multiplier="54:53" id="2bi-di-eif"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpd-6E-fX6">
+                        <rect key="frame" x="88" y="8" width="215.5" height="63.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="YpD-PX-OWC" secondAttribute="trailing" constant="16" id="RqI-Jh-B5K"/>
-                    <constraint firstItem="YpD-PX-OWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="c2n-pp-SHX"/>
-                    <constraint firstAttribute="bottom" secondItem="YpD-PX-OWC" secondAttribute="bottom" constant="16" id="pAu-at-WU3"/>
-                    <constraint firstItem="YpD-PX-OWC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="uud-d0-Sou"/>
+                    <constraint firstItem="kpd-6E-fX6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0X8-0T-12J"/>
+                    <constraint firstItem="kpd-6E-fX6" firstAttribute="leading" secondItem="ybV-fC-hsC" secondAttribute="trailing" constant="8" id="AUz-fm-H46"/>
+                    <constraint firstAttribute="bottom" secondItem="kpd-6E-fX6" secondAttribute="bottom" constant="8" id="KXw-vf-C2H"/>
+                    <constraint firstAttribute="bottom" secondItem="ybV-fC-hsC" secondAttribute="bottom" constant="8" id="VZx-aM-M5p"/>
+                    <constraint firstItem="ybV-fC-hsC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xhx-C8-N2f"/>
+                    <constraint firstItem="ybV-fC-hsC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="g08-rK-Rpd"/>
+                    <constraint firstAttribute="trailing" secondItem="kpd-6E-fX6" secondAttribute="trailing" constant="16" id="m8Z-15-Zdv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="label" destination="YpD-PX-OWC" id="x6y-Zj-hf0"/>
+                <outlet property="contentImageView" destination="ybV-fC-hsC" id="ccZ-ga-zf6"/>
+                <outlet property="headingLabel" destination="kpd-6E-fX6" id="b4m-3k-NPX"/>
             </connections>
         </tableViewCell>
     </objects>

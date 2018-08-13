@@ -32,7 +32,8 @@ final class TextCellController {
     
     func prepare(_ cell: TextCell) {        
         prepareBindings(for: cell)
-        cell.label.text = model.headingLabelText
+        cell.headingLabel.attributedText = model.headingLabelAttributedText
+        cell.contentImageView.image = model.image
         cell.backgroundColor = model.backgroundColor
     }
     

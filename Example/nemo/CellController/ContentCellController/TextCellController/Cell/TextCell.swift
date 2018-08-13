@@ -10,7 +10,18 @@ import UIKit
 
 class TextCell: UITableViewCell, NibLoadable {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var headingLabel: UILabel! {
+        didSet {
+            headingLabel.numberOfLines = 0
+            headingLabel.text = nil
+        }
+    }
+    @IBOutlet weak var contentImageView: UIImageView! {
+        didSet {
+            contentImageView.backgroundColor = .lightGray
+            contentImageView.updateCornerRadii(defaultCornerRadius/2)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

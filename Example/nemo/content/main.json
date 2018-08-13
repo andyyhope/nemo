@@ -5,34 +5,52 @@
 			"type": "segment",
 			"segments": [
 				{
-					"title": "One",
+					"title": "Featured",
 					"cells": [
-						{
-							"type": "text",
-							"backgroundColor": "blue",
-							"text": "Lorem ipsum",
-						},
-						{
-							"type": "detail",
-							"backgroundColor": "green",
-							"heading-text": "Breaking News",
-							"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-						},
 						{
 							"type": "image",
 							"image": "mountain",
 							"caption": "This is a photo",
-							"backgroundColor": "red",
+						},
+						{
+							"type": "detail",
+							"heading-text": "Breaking News",
+							"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+						},
+						{
+							"type": "text",
+							"text": "Andyy Hope",
+							"subtext": "3k followers",
+							"image": "avatar"
 						},
 					]
 				},
 				{
-					"title": "Two",
+					"title": "More",
 					"cells": [
 						{
 							"type": "text",
-							"backgroundColor": "red",
-							"text": "Dolla Amet",
+							"text": "Finn the Human",
+							"subtext": "1m followers",
+							"image": "avatar"
+						},
+						{
+							"type": "text",
+							"text": "Jake the Dog",
+							"subtext": "500k followers",
+							"image": "avatar"
+						},
+						{
+							"type": "text",
+							"text": "Princess Buttercup",
+							"subtext": "30k followers",
+							"image": "avatar"
+						},
+						{
+							"type": "text",
+							"text": "Lumpy Space Princess",
+							"subtext": "500 followers",
+							"image": "avatar"
 						},
 					]
 				}
@@ -43,7 +61,6 @@
 			"cells": [
 				{
 					"type": "carousel",
-					"backgroundColor": "red",
 					"cells": [	
 						{
 		                    "type": "ad",
@@ -51,25 +68,21 @@
 							"company": "NASAA",
 							"url": "nasaa.org",
 							"image": "city",
-							"backgroundColor": "green",
 						},
 						{
 		                    "type": "image",
 		                    "image": "dune",
 							"caption": "banjo",
-							"backgroundColor": "blue",
 						},
 						{
 		                    "type": "icon",
 		                    "icon": "glyph",
 							"text": "bagpipes",
-							"backgroundColor": "red",
 						},
 					]
 		        },
 				{
 					"type": "text",
-					"backgroundColor": "blue",
 					"text": "Lorem ipsum",
 					"navigation": {
 						"destination": "apple"
@@ -77,7 +90,6 @@
 				},
 				{
 					"type": "detail",
-					"backgroundColor": "green",
 					"heading-text": "Breaking News",
 					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 					"navigation": {
@@ -88,7 +100,6 @@
 					"type": "image",
 					"image": "mountain",
 					"caption": "This is a photo",
-					"backgroundColor": "red",
 					"navigation": {
 						"destination": "orange"
 					},
