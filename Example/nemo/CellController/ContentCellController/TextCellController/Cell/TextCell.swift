@@ -10,6 +10,7 @@ import UIKit
 
 class TextCell: UITableViewCell, NibLoadable {
 
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var headingLabel: UILabel! {
         didSet {
             headingLabel.numberOfLines = 0

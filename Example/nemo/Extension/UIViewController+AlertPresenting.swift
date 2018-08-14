@@ -18,11 +18,11 @@ extension UIViewController {
         presentAlert(withTitle: "Success", message: message)
     }
     
-    func presentAlert(withTitle title: String, message: String) {
+    func presentAlert(withTitle title: String, message: String, duration: TimeInterval = 2) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         self.present(alertController, animated: true, completion: nil)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             alertController.dismiss(animated: true, completion: nil)
         }
     }

@@ -14,6 +14,7 @@ final class TextCellController {
     
     let model: TextCellModel
     let entity: TextCellEntity
+    weak var navigationDelegate: NavigationDelegate?
     
 
     // MARK: - Initializer
@@ -24,20 +25,21 @@ final class TextCellController {
     }
 
     
-    // MARK: - Computed Properties
-    
-    
-    
     // MARK: - Preparation
     
-    func prepare(_ cell: TextCell) {        
-        prepareBindings(for: cell)
+    func prepare(_ cell: TextCell) {
         cell.headingLabel.attributedText = model.headingLabelAttributedText
         cell.contentImageView.image = model.image
         cell.backgroundColor = model.backgroundColor
+        cell.button.addTarget(self,
+                              action: #selector(navigationWillBegin(sender:)),
+                              for: .touchUpInside)
     }
+}
+
+extension TextCellController: NavigationRequesting {
     
-    private func prepareBindings(for cell: TextCell) {
-        
+    @objc func navigationWillBegin(sender: Any) {
+        navigationDelegate?.navigate(to: .article(articleID: 123, title: "Boo"))
     }
 }

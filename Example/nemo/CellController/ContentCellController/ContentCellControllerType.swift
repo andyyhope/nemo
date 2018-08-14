@@ -37,4 +37,15 @@ enum ContentCellControllerType {
             self = .buttonField(.init(entity: entity))
         }
     }
+    
+    func setNavigationDelegate(_ navigationDelegate: NavigationDelegate) {
+        switch self {
+        case .text(let cellController):
+            cellController.navigationDelegate = navigationDelegate
+        case .image(let cellController):
+            cellController.navigationDelegate = navigationDelegate
+        default:
+            return
+        }
+    }
 }

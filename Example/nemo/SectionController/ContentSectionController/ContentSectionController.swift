@@ -13,7 +13,6 @@ struct ContentSectionController {
     let cellControllers: [ContentCellControllerType]
     let model: ContentSectionModel
     
-    
     init(entity: ContentSectionEntity) {
         self.entity = entity
         self.cellControllers = self.entity.cellEntities

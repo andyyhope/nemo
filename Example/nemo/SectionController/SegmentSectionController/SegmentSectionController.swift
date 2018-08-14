@@ -31,6 +31,10 @@ final class SegmentSectionController {
         return dataSource.selectedIndexCellControllers
     }
     
+    var allCellControllers: [ContentCellControllerType] {
+        return dataSource.allCellControllers
+    }
+    
     init(entity: SegmentSectionEntity) {
         self.entity = entity
         self.dataSource = SegmentSectionDataSource(entity: self.entity)

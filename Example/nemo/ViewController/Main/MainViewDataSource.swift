@@ -8,10 +8,6 @@
 
 import UIKit
 
-extension MainViewDataSource {
-
-}
-
 final class MainViewDataSource {
     
     // MARK: - Properties
@@ -71,6 +67,21 @@ final class MainViewDataSource {
         self.entity = entity
         self.sectionControllers = entity.sections
             .compactMap { SectionControllerType(sectionEntity: $0) }
+    }
+    
+    var cellControllers: [ContentCellControllerType] {
+        let cellControllers: [[ContentCellControllerType]] = sectionControllers
+            .map {
+                switch $0 {
+                case .content(let sectionController):
+                    return sectionController.cellControllers
+                case .form(let sectionController):
+                    return sectionController.cellControllers
+                case .segment(let sectionController):
+                    return sectionController.allCellControllers
+                }
+            }
+        return cellControllers.flatMap { $0 }
     }
 }
 

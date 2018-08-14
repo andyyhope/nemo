@@ -99,6 +99,11 @@ final class MainViewController: UIViewController, CellControllerDisplayable, Sec
             }
         }
         
+        dataSource.cellControllers
+            .forEach {
+                $0.setNavigationDelegate(self)
+            }
+        
         
     }
 }
@@ -186,5 +191,23 @@ extension MainViewController: SegmentSectionControllerDelegate {
     
     func segmentSectionControllerDidUpdate(_ sectionController: SegmentSectionController) {
         tableView.reloadData()
+    }
+}
+
+extension MainViewController: NavigationDelegate {
+    
+    func navigate(to navigation: NavigationDestinationType) {
+        switch navigation {
+        case .article(let articleID, let title):
+            presentAlert(
+                withTitle: "Navigate to Article",
+                message: "id: \(articleID)\ntitle: \(title)",
+                duration: 3)
+        case .gallery(let galleryID, let title):
+            presentAlert(
+                withTitle: "Navigate to Gallery",
+                message: "id: \(galleryID)\ntitle: \(title)",
+                duration: 3)
+        }
     }
 }

@@ -20,31 +20,41 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpd-6E-fX6">
+                        <rect key="frame" x="88" y="8" width="176" height="63.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ybV-fC-hsC">
                         <rect key="frame" x="16" y="8" width="64.5" height="63.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ybV-fC-hsC" secondAttribute="height" multiplier="54:53" id="2bi-di-eif"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpd-6E-fX6">
-                        <rect key="frame" x="88" y="8" width="215.5" height="63.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRv-ZU-umj">
+                        <rect key="frame" x="272" y="23" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="HWz-Py-SSO"/>
+                            <constraint firstAttribute="height" constant="32" id="sP4-nM-4s1"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="kpd-6E-fX6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0X8-0T-12J"/>
+                    <constraint firstItem="BRv-ZU-umj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0ZK-Uj-1gF"/>
                     <constraint firstItem="kpd-6E-fX6" firstAttribute="leading" secondItem="ybV-fC-hsC" secondAttribute="trailing" constant="8" id="AUz-fm-H46"/>
                     <constraint firstAttribute="bottom" secondItem="kpd-6E-fX6" secondAttribute="bottom" constant="8" id="KXw-vf-C2H"/>
                     <constraint firstAttribute="bottom" secondItem="ybV-fC-hsC" secondAttribute="bottom" constant="8" id="VZx-aM-M5p"/>
+                    <constraint firstAttribute="trailing" secondItem="BRv-ZU-umj" secondAttribute="trailing" constant="16" id="W38-4I-Psi"/>
                     <constraint firstItem="ybV-fC-hsC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Xhx-C8-N2f"/>
                     <constraint firstItem="ybV-fC-hsC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="g08-rK-Rpd"/>
-                    <constraint firstAttribute="trailing" secondItem="kpd-6E-fX6" secondAttribute="trailing" constant="16" id="m8Z-15-Zdv"/>
+                    <constraint firstItem="BRv-ZU-umj" firstAttribute="leading" secondItem="kpd-6E-fX6" secondAttribute="trailing" constant="8" id="zyM-UO-rPa"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="button" destination="BRv-ZU-umj" id="KTD-Vv-5d1"/>
                 <outlet property="contentImageView" destination="ybV-fC-hsC" id="ccZ-ga-zf6"/>
                 <outlet property="headingLabel" destination="kpd-6E-fX6" id="b4m-3k-NPX"/>
             </connections>

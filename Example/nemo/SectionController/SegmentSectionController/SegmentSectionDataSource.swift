@@ -33,6 +33,10 @@ class SegmentSectionDataSource {
         return options[selectedIndex].cellControllers
     }
     
+    var allCellControllers: [ContentCellControllerType] {
+        return options.flatMap { $0.cellControllers }
+    }
+    
     func updateSelectedIndex(_ index: Int) {
         self.selectedIndex = index
     }
