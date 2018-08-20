@@ -15,19 +15,16 @@ final class ImageCarouselCellController {
     let model: ImageCarouselCellModel
     let entity: ImageCarouselCellEntity
     
-
     // MARK: - Initializer
     
     init(entity: ImageCarouselCellEntity) {
         self.entity = entity
         self.model = ImageCarouselCellModel(entity: entity)
     }
-
     
     // MARK: - Preparation
     
     func prepare(_ cell: ImageCarouselCell) {
-        prepareBindings(for: cell)
         cell.backgroundColor = model.backgroundColor
         cell.imageView.image = model.image
     }
