@@ -24,19 +24,11 @@ final class ImageCarouselCellController {
     }
 
     
-    // MARK: - Computed Properties
-    
-    
-    
     // MARK: - Preparation
     
     func prepare(_ cell: ImageCarouselCell) {
         prepareBindings(for: cell)
         cell.backgroundColor = model.backgroundColor
         cell.imageView.image = model.image
-    }
-    
-    private func prepareBindings(for cell: ImageCarouselCell) {
-        
     }
 }

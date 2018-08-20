@@ -24,6 +24,7 @@ enum Request: String {
 }
 
 struct Requester {
+    
     static func request(_ request: Request) -> Result<JSON> {
         guard
             let path = Bundle.main.path(forResource: request.resource, ofType: type)

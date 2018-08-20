@@ -12,7 +12,6 @@ final class CarouselCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     let entity: CarouselCellEntity
     let layout: UICollectionViewLayout
     
@@ -42,9 +41,3 @@ final class CarouselCellModel {
         }
     }
 }
-//
-//extension CarouselCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
-//}

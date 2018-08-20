@@ -9,6 +9,7 @@
 import Foundation
 
 enum CarouselCellControllerType {
+    
     case ad(AdCarouselCellController)
     case icon(IconCarouselCellController)
     case image(ImageCarouselCellController)

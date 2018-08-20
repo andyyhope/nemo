@@ -58,9 +58,7 @@ extension ButtonFieldCellController: FormFieldHandling {
         delegate?.formDidUpdate(for: type)
     }
     
-    func clearFormField() {
-        
-    }
+    func clearFormField() { return }
     
     func setInteractionEnabled(_ isInteractionEnabled: Bool) {
         model.state = isInteractionEnabled ? .enabled : .disabled

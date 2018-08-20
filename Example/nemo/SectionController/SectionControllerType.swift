@@ -9,6 +9,7 @@
 import Foundation
 
 enum SectionControllerType {
+    
     case content(ContentSectionController)
     case segment(SegmentSectionController)
     case form(FormSectionController)

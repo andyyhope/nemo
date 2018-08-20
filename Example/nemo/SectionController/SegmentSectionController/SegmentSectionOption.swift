@@ -10,6 +10,7 @@ import Foundation
 
 
 struct SegmentSectionOption {
+    
     let entity: SegmentSectionOptionEntity
     let title: String
     let cellControllers: [ContentCellControllerType]

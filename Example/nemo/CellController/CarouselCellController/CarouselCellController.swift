@@ -55,9 +55,11 @@ final class CarouselCellController: NSObject {
 }
 
 extension CarouselCellController: UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataSource.numberOfSections
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.numberOfCells(inSection: section)
     }
@@ -107,10 +109,12 @@ extension CarouselCellController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return CarouselCell.edgeInsets
+    
+        return CarouselCell.edgeInsets
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        
         return CarouselCell.inset
     }
 }

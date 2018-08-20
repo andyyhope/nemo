@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 protocol SizeDefaultable {
+    
     static var defaultSize: CGSize { get }
 }

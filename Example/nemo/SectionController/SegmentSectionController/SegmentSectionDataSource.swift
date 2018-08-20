@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class SegmentSectionDataSource {
+    
     let entity: SegmentSectionEntity
     let model: SegmentSectionModel
     let options: [SegmentSectionOption]

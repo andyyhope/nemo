@@ -49,7 +49,7 @@ extension FormSectionDataSource: Requesting {
     }
     
     private func requestSubmit(_ completion: @escaping ResultClosure) {
-        Requester.submit(.submitForm(postJSON)) { [weak self] in
+        Requester.submit(.submitForm(postJSON)) { 
             completion($0)
         }
     }

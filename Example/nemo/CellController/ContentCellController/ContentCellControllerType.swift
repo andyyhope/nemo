@@ -9,6 +9,8 @@
 import Foundation
 
 enum ContentCellControllerType {
+    
+    // Content
     case text(TextCellController)
     case detail(DetailCellController)
     case image(ImageCellController)

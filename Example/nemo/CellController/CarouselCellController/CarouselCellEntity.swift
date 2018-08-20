@@ -9,6 +9,7 @@
 import Foundation
 
 struct CarouselCellEntity {
+    
     let backgroundColor: String?
     let entities: [CarouselCellType]
     

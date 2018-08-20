@@ -15,18 +15,12 @@ final class AdCarouselCellController {
     let model: AdCarouselCellModel
     let entity: AdCarouselCellEntity
     
-
     // MARK: - Initializer
     
     init(entity: AdCarouselCellEntity) {
         self.entity = entity
         self.model = AdCarouselCellModel(entity: entity)
     }
-
-    
-    // MARK: - Computed Properties
-    
-    
     
     // MARK: - Preparation
     

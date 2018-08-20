@@ -10,12 +10,17 @@ import Foundation
 import UIKit
 
 enum ColorFactory: String {
+    
     case red
     case blue
     case green
     case black
     case white
     case clear
+    
+    init(string: String) {
+        self = ColorFactory(rawValue: string) ?? .clear
+    }
     
     var color: UIColor {
         switch self {
@@ -32,10 +37,6 @@ enum ColorFactory: String {
         case .clear:
             return .clear
         }
-    }
-    
-    init(string: String) {
-        self = ColorFactory(rawValue: string) ?? .clear
     }
 }
 

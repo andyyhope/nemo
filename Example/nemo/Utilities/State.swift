@@ -9,9 +9,13 @@
 import Foundation
 
 enum State {
+    
     case loading
     case completed
     case failed(Failure)
+}
+
+extension State {
     
     enum Failure {
         case unknown(String)

@@ -12,7 +12,6 @@ final class ImageCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: ImageCellEntity
     
     
@@ -42,9 +41,3 @@ final class ImageCellModel {
         return UIImage(named: entity.imageName)
     }
 }
-//
-//extension ImageCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
-//}

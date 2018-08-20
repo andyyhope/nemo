@@ -12,6 +12,7 @@ import UIKit
 private let defaultFooterHeight: CGFloat = 16
 
 protocol SectionControllerDisplayable {
+    
     func registerViews(for tableView: UITableView)
     
     func tableView(_ tableView: UITableView, sectionHeaderHeightFor sectionController: SectionControllerType) -> CGFloat

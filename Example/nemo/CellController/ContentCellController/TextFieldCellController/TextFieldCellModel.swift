@@ -43,6 +43,7 @@ final class TextFieldCellModel {
 }
 
 extension TextFieldCellModel: ViewStateManageable {
+    
     enum ViewState {
         case enabled, disabled
     }

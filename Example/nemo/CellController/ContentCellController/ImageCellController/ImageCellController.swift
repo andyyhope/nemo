@@ -40,7 +40,6 @@ final class ImageCellController {
                                        action: #selector(navigationWillBegin(sender:)))
         view.addGestureRecognizer(tapGestureRecognizer)
         view.isUserInteractionEnabled = true
-        
     }
 }
 

@@ -10,5 +10,6 @@ import Foundation
 import UIKit
 
 protocol HeightDefaultable {
+    
     static var defaultHeight: CGFloat { get }
 }

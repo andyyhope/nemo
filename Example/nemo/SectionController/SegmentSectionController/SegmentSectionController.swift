@@ -15,6 +15,7 @@ protocol SegmentSectionControllerDelegate: class {
 }
 
 final class SegmentSectionController {
+    
     let entity: SegmentSectionEntity
     let dataSource: SegmentSectionDataSource
     weak var delegate: SegmentSectionControllerDelegate?

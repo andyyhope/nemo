@@ -12,7 +12,6 @@ final class IconCarouselCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: IconCarouselCellEntity
     
     
@@ -24,10 +23,6 @@ final class IconCarouselCellModel {
     
     
     // MARK: - Computed Properties
-    
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
     
     var backgroundColor: UIColor {
         if let color = entity.backgroundColor{
@@ -41,10 +36,4 @@ final class IconCarouselCellModel {
     var iconImage: UIImage? {
         return UIImage(named: entity.iconName)
     }
-//}
-//
-//extension IconCarouselCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
 }

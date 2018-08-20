@@ -9,6 +9,7 @@
 import Foundation
 
 struct SegmentSectionOptionEntity {
+    
     let title: String
     let cellEntities: [ContentCellEntity]
     

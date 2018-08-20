@@ -9,10 +9,13 @@
 import Foundation
 
 protocol NavigationRequesting: class {
+    
     var navigationDelegate: NavigationDelegate? { get set }
+    
     func navigationWillBegin(sender: Any)
 }
 
 protocol NavigationDelegate: class {
+    
     func navigate(to navigation: NavigationDestinationType)
 }

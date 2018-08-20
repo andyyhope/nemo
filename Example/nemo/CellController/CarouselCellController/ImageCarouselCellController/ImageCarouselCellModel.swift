@@ -12,9 +12,7 @@ final class ImageCarouselCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: ImageCarouselCellEntity
-    
     
     // MARK: - Initializer
     
@@ -22,12 +20,7 @@ final class ImageCarouselCellModel {
         self.entity = entity
     }
     
-    
     // MARK: - Computed Properties
-    
-//    var headingLabelText: String {
-//        return entity.<#name#>
-//    }
     
     var backgroundColor: UIColor {
         if let color = entity.backgroundColor{
@@ -41,11 +34,4 @@ final class ImageCarouselCellModel {
     var image: UIImage? {
         return UIImage(named: entity.imageName)
     }
-    
-//}
-//
-//extension ImageCarouselCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
 }

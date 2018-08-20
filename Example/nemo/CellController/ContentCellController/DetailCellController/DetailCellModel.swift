@@ -12,7 +12,6 @@ final class DetailCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: DetailCellEntity
     
     
@@ -46,9 +45,3 @@ final class DetailCellModel {
         }
     }
 }
-//
-//extension DetailCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
-//}

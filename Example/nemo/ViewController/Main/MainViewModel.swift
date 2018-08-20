@@ -26,14 +26,10 @@ final class MainViewModel {
     // MARK: - Computed Properties
     
     var title: String {
-        return "Ramen"
+        return "NEMO"
     }
     
     var backgroundColor: UIColor {
         return .white
     }
 }
-//
-//extension MainViewModel:  {
-//    typealias ViewState = ViewState
-//}

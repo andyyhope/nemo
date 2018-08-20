@@ -9,6 +9,7 @@
 import Foundation
 
 struct ContentSectionController {
+    
     let entity: ContentSectionEntity
     let cellControllers: [ContentCellControllerType]
     let model: ContentSectionModel

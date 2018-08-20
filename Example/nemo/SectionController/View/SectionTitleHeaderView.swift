@@ -23,6 +23,7 @@ final class SectionTitleHeaderView: UITableViewHeaderFooterView, NibLoadable {
 }
 
 extension SectionTitleHeaderView: HeightDefaultable {
+    
     static var defaultHeight: CGFloat {
         return 60
     }

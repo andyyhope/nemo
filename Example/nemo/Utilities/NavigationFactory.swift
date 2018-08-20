@@ -9,6 +9,7 @@
 import Foundation
 
 enum Navigation: String {
+    
     case main
     case detail
     case article

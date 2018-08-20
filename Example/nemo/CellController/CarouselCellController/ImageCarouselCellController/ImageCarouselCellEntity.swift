@@ -9,6 +9,7 @@
 import Foundation
 
 struct ImageCarouselCellEntity {
+    
     let caption: String
     let imageName: String
     let backgroundColor: String?

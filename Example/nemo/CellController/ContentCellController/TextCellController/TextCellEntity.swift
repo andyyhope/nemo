@@ -9,6 +9,7 @@
 import Foundation
 
 struct TextCellEntity {
+    
     let text: String
     let subtext: String?
     let backgroundColor: String?

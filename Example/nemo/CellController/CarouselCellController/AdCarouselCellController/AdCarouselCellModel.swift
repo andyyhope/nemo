@@ -14,13 +14,11 @@ final class AdCarouselCellModel {
     
     private let entity: AdCarouselCellEntity
     
-    
     // MARK: - Initializer
     
     init(entity: AdCarouselCellEntity) {
         self.entity = entity
     }
-    
     
     // MARK: - Computed Properties
     

@@ -9,6 +9,8 @@
 import Foundation
 
 enum ContentCellEntity {
+    
+    // Content
     case text(TextCellEntity)
     case detail(DetailCellEntity)
     case image(ImageCellEntity)

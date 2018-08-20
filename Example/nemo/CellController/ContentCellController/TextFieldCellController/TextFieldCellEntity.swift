@@ -9,6 +9,7 @@
 import Foundation
 
 struct TextFieldCellEntity {
+    
     let property: String
     let label: String
     let placeholder: String?

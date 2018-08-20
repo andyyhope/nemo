@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Requesting {
+    
     associatedtype Request
 }

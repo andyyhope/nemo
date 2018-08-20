@@ -10,11 +10,12 @@ import UIKit
 
 class AdCarouselCell: UICollectionViewCell, NibLoadable {
 
+    @IBOutlet weak var captionLabel: UILabel!
+    
     @IBOutlet weak var imageView: UIImageView! { didSet {
         imageView.contentMode = .scaleAspectFill
         }
     }
-    @IBOutlet weak var captionLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,7 @@ class AdCarouselCell: UICollectionViewCell, NibLoadable {
 }
 
 extension AdCarouselCell: SizeDefaultable {
+    
     static var defaultSize: CGSize {
         return .init(width: 200, height: CarouselCell.defaultHeight)
     }

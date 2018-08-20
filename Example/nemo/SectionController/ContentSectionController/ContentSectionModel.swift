@@ -9,6 +9,7 @@
 import Foundation
 
 final class ContentSectionModel {
+    
     let entity: ContentSectionEntity
     
     init(entity: ContentSectionEntity) {

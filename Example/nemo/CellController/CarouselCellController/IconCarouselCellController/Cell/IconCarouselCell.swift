@@ -9,6 +9,7 @@
 import UIKit
 
 class IconCarouselCell: UICollectionViewCell, NibLoadable {
+    
     @IBOutlet weak var iconImageView: UIImageView! { didSet {
             iconImageView.contentMode = .scaleAspectFill
         }

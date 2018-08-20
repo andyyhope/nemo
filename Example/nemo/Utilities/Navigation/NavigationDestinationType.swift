@@ -9,6 +9,7 @@
 import Foundation
 
 enum NavigationDestinationType {
+    
     case article(articleID: Int, title: String)
     case gallery(galleryID: Int, title: String)
 }

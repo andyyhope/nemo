@@ -31,6 +31,7 @@ final class FormSectionModel {
 }
 
 extension FormSectionModel: ViewStateManageable {
+    
     enum ViewState {
         case unfilled, sent
     }

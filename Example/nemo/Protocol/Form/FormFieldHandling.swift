@@ -9,20 +9,10 @@
 import Foundation
 
 protocol FormFieldHandling {
+    
     var delegate: FormCellControllerDelegate? { get set }
     
     func formElementDidUpdate(sender: Any)
-    
     func clearFormField()
-    
     func setInteractionEnabled(_ isInteractionEnabled: Bool)
-}
-
-protocol FormFieldValueStoring {
-    var formValue: Any? { get }
-    
-    func setFormValue(_ value: Any?)
-}
-protocol FormFieldContaining {
-    var dataSource: FormFieldValueStoring { get set }
 }

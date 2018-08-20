@@ -9,6 +9,7 @@
 import Foundation
 
 struct ImageCellEntity {
+    
     let caption: String
     let imageName: String
     let backgroundColor: String?

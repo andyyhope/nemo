@@ -9,8 +9,10 @@
 import Foundation
 
 struct ContentSectionEntity {
+    
     let cellEntities: [ContentCellEntity]
     let title: String?
+    
     init?(json: JSON) {
         guard let entities = json["cells"] as? [JSON] else { return nil }
         

@@ -22,6 +22,7 @@ class ImageCarouselCell: UICollectionViewCell, NibLoadable {
 }
 
 extension ImageCarouselCell: SizeDefaultable {
+    
     static var defaultSize: CGSize {
         return .init(width: 80, height: CarouselCell.defaultHeight)
     }

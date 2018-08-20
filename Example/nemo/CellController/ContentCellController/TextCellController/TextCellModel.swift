@@ -12,7 +12,6 @@ final class TextCellModel {
     
     // MARK: - Properties
     
-//    var state: ViewState
     private let entity: TextCellEntity
     
     
@@ -32,6 +31,7 @@ final class TextCellModel {
     var headingLabelAttributedText: NSAttributedString {
         let mutableString = NSMutableAttributedString(attributedString: headingAttributedString)
         mutableString.append(subheadingAttributedString)
+        
         return mutableString
     }
     
@@ -58,9 +58,3 @@ final class TextCellModel {
         }
     }
 }
-//
-//extension TextCellModel: ViewStateManageable {
-//    enum ViewState {
-//        case <#state 1#>, <#state 2#>
-//    }
-//}

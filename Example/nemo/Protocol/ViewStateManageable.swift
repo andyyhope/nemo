@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ViewStateManageable {
+    
     associatedtype ViewState
     
     var state: ViewState { get set }

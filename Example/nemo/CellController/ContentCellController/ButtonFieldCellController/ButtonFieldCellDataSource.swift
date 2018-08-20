@@ -14,8 +14,6 @@ final class ButtonFieldCellDataSource {
     
     let entity: ButtonFieldCellEntity
     var model: ButtonFieldCellModel
-//    var state: State
-    
     
     // MARK: - Initializer
     
@@ -23,30 +21,4 @@ final class ButtonFieldCellDataSource {
         self.entity = entity
         self.model = ButtonFieldCellModel(entity: entity)
     }
-    
-    
-    // MARK: - Computered Properties
-    
-    
 }
-
-//extension ButtonFieldCellDataSource: Requesting {
-//    
-//    enum Request {
-//        case <#request#>
-//    }
-//    
-//    func request(_ request: Request) {
-//        state = .loading
-//        
-//        switch request {
-//        case .<#request#>:
-//            request<#Request#>()
-//        }
-//    }
-//    
-//    private func request<#Request#>() {
-//        
-//    }
-//}
-

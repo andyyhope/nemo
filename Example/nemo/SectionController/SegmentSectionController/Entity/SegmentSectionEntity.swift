@@ -9,6 +9,7 @@
 import Foundation
 
 struct SegmentSectionEntity {
+    
     let optionEntities: [SegmentSectionOptionEntity]
     
     init?(json: JSON) {

@@ -22,10 +22,6 @@ final class DetailCellController {
         self.entity = entity
         self.model = DetailCellModel(entity: entity)
     }
-
-    
-    // MARK: - Computed Properties
-    
     
     
     // MARK: - Preparation

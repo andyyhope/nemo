@@ -9,6 +9,7 @@
 import Foundation
 
 struct AdCarouselCellEntity {
+    
     let company: String
     let description: String
     let imageName: String

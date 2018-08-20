@@ -9,6 +9,7 @@
 import Foundation
 
 struct MainEntity {
+    
     let sections: [SectionEntity]
     
     init?(json: JSON) {

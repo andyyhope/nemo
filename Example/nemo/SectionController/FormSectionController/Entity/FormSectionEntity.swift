@@ -9,6 +9,7 @@
 import Foundation
 
 class FormSectionEntity {
+    
     let cellEntities: [ContentCellEntity]
     let title: String?
     

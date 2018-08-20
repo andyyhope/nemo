@@ -15,8 +15,6 @@ final class CarouselCellDataSource { //: StateManageable {
     let entity: CarouselCellEntity
     var model: CarouselCellModel
     var cellControllers: [CarouselCellControllerType]
-//    var state: State
-    
     
     // MARK: - Initializer
     
@@ -26,8 +24,6 @@ final class CarouselCellDataSource { //: StateManageable {
         self.cellControllers = entity.entities
             .map { CarouselCellControllerType(entity: $0) }
     }
-    
-    
     // MARK: - Computered Properties
     
     var numberOfSections: Int {
@@ -42,24 +38,3 @@ final class CarouselCellDataSource { //: StateManageable {
         return cellControllers[indexPath.row]
     }
 }
-
-//extension CarouselCellDataSource: Requesting {
-//    
-//    enum Request {
-//        case <#request#>
-//    }
-//    
-//    func request(_ request: Request) {
-//        state = .loading
-//        
-//        switch request {
-//        case .<#request#>:
-//            request<#Request#>()
-//        }
-//    }
-//    
-//    private func request<#Request#>() {
-//        
-//    }
-//}
-

@@ -9,6 +9,7 @@
 import Foundation
 
 struct SegmentSectionModel {
+    
     let entity: SegmentSectionEntity
     let titles: [String]
     

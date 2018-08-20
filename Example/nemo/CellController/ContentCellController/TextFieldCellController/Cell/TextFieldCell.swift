@@ -10,9 +10,6 @@ import UIKit
 
 final class TextFieldCell: UITableViewCell, NibLoadable {
 
-    // MARK: - Properties
-    
-    
     // MARK: - IBOutlets
     
     @IBOutlet weak var label: UILabel!
@@ -34,6 +31,7 @@ final class TextFieldCell: UITableViewCell, NibLoadable {
 }
 
 extension TextFieldCell: HeightDefaultable {
+    
     static var defaultHeight: CGFloat {
         return 100
     }

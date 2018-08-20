@@ -8,21 +8,16 @@
 
 import UIKit
 
-extension MainViewController {
-    typealias DataSource = MainViewDataSource
-    typealias Model = MainViewModel
-}
-
 final class MainViewController: UIViewController, CellControllerDisplayable, SectionControllerDisplayable {
     
     // MARK: - Properties
     
-    private var dataSource: DataSource = DataSource()
+    private var dataSource: MainViewDataSource = MainViewDataSource()
     private var tableView: UITableView = UITableView()
     
     // MARK: - Computed Properties
     
-    private var model: Model {
+    private var model: MainViewModel {
         return dataSource.model
     }
     
