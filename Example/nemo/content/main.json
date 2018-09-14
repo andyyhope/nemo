@@ -7,7 +7,7 @@
 			"cells": [
 		        {
 					"type": "image",
-					"image": "mountain",
+					"image": "adventuretime",
 					"caption": "This is a photo",
 					"navigation": {
 						"destination": "orange"
@@ -25,6 +25,7 @@
 					"type": "text",
 					"text": "Lumpy Space Princess",
 					"subtext": "500 followers",
+					"image": "lsp",
 					"navigation": {
 						"destination": "apple"
 					},
@@ -46,7 +47,7 @@
 						},
 						{
 		                    "type": "icon",
-		                    "icon": "icon",
+		                    "icon": "icon1",
 							"text": "Gaming",
 						},
 					]
@@ -84,25 +85,25 @@
 							"type": "text",
 							"text": "Finn the Human",
 							"subtext": "1m followers",
-							"image": "avatar"
+							"image": "finn"
 						},
 						{
 							"type": "text",
 							"text": "Jake the Dog",
 							"subtext": "500k followers",
-							"image": "avatar"
+							"image": "jake"
 						},
 						{
 							"type": "text",
-							"text": "Princess Buttercup",
+							"text": "Princess Bubblegum",
 							"subtext": "30k followers",
-							"image": "avatar"
+							"image": "pb"
 						},
 						{
 							"type": "text",
 							"text": "Lumpy Space Princess",
 							"subtext": "500 followers",
-							"image": "avatar"
+							"image": "lsp"
 						},
 					]
 				}
