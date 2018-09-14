@@ -5,6 +5,30 @@
 			"type": "content",
 			"title": "Related Content",
 			"cells": [
+		        {
+					"type": "image",
+					"image": "mountain",
+					"caption": "This is a photo",
+					"navigation": {
+						"destination": "orange"
+					},
+				},
+				{
+					"type": "detail",
+					"heading-text": "Breaking News",
+					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+					"navigation": {
+						"destination": "carrot"
+					},
+				},
+				{
+					"type": "text",
+					"text": "Lumpy Space Princess",
+					"subtext": "500 followers",
+					"navigation": {
+						"destination": "apple"
+					},
+				},
 				{
 					"type": "carousel",
 					"cells": [	
@@ -27,30 +51,6 @@
 						},
 					]
 		        },
-				{
-					"type": "detail",
-					"heading-text": "Breaking News",
-					"detail-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-					"navigation": {
-						"destination": "carrot"
-					},
-				},
-				{
-					"type": "text",
-					"text": "Lumpy Space Princess",
-					"subtext": "500 followers",
-					"navigation": {
-						"destination": "apple"
-					},
-				},
-				{
-					"type": "image",
-					"image": "mountain",
-					"caption": "This is a photo",
-					"navigation": {
-						"destination": "orange"
-					},
-				},
 			]
         },
         {
