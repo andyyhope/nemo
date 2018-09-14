@@ -25,8 +25,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-1S-e6c">
-                        <rect key="frame" x="0.0" y="-4" width="80" height="51"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hd7-1S-e6c">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="51"/>
                     </imageView>
                 </subviews>
             </view>

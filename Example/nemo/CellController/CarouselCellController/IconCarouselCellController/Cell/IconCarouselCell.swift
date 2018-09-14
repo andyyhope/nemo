@@ -10,23 +10,26 @@ import UIKit
 
 class IconCarouselCell: UICollectionViewCell, NibLoadable {
     
-    @IBOutlet weak var iconImageView: UIImageView! { didSet {
-            iconImageView.contentMode = .scaleAspectFill
+    @IBOutlet weak var label: UILabel! {
+        didSet {
+            label.font = .boldSystemFont(ofSize: 16)
         }
     }
-    @IBOutlet weak var label: UILabel!
+    
+    @IBOutlet weak var iconImageView: UIImageView! {
+        didSet {
+            iconImageView.contentMode = .scaleAspectFit
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    override func prepareForReuse() {
-        
-    }
-
 }
 
 extension IconCarouselCell: SizeDefaultable {
+    
     static var defaultSize: CGSize {
         return .init(width: 100, height: CarouselCell.defaultHeight)
     }

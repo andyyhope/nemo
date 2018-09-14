@@ -10,14 +10,11 @@ import Foundation
 import UIKit
 
 protocol CellControllerDisplayable {
+    
     func registerCells(for tableView: UITableView)
-    
     func tableView(_ tableView: UITableView, estimatedCellHeightFor cellController: ContentCellControllerType) -> CGFloat
-    
     func tableView(_ tableView: UITableView, cellHeightFor cellController: ContentCellControllerType) -> CGFloat
-    
     func tableView(_ tableView: UITableView, cellFor cellController: ContentCellControllerType, at indexPath: IndexPath) -> UITableViewCell
-    
 }
 
 extension CellControllerDisplayable where Self: UIViewController {

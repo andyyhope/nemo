@@ -16,7 +16,7 @@ class ImageCarouselCell: UICollectionViewCell, NibLoadable {
     }
     
     override func awakeFromNib() {
-        super.awakeFromNib()
+        super.awakeFromNib()    
         updateCornerRadii()
     }
 }
@@ -24,6 +24,6 @@ class ImageCarouselCell: UICollectionViewCell, NibLoadable {
 extension ImageCarouselCell: SizeDefaultable {
     
     static var defaultSize: CGSize {
-        return .init(width: 80, height: CarouselCell.defaultHeight)
+        return .init(width: 200, height: CarouselCell.defaultHeight)
     }
 }

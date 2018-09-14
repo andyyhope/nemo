@@ -34,6 +34,7 @@ final class IconCarouselCellController {
         prepareBindings(for: cell)
         cell.backgroundColor = model.backgroundColor
         cell.iconImageView.image = model.iconImage
+        cell.label.text = model.textLabelText
     }
     
     private func prepareBindings(for cell: IconCarouselCell) {

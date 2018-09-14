@@ -72,6 +72,7 @@ final class MainViewController: UIViewController, CellControllerDisplayable, Sec
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.backgroundColor = model.backgroundColor
+        tableView.allowsSelection = false
         view.addSubview(tableView)
         registerCells(for: tableView)
         registerViews(for: tableView)
@@ -98,8 +99,6 @@ final class MainViewController: UIViewController, CellControllerDisplayable, Sec
             .forEach {
                 $0.setNavigationDelegate(self)
             }
-        
-        
     }
 }
 
@@ -135,7 +134,6 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellController = dataSource.cellController(for: indexPath)
         return self.tableView(tableView, cellHeightFor: cellController)
-        
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

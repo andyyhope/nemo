@@ -14,13 +14,11 @@ final class IconCarouselCellModel {
     
     private let entity: IconCarouselCellEntity
     
-    
     // MARK: - Initializer
     
     init(entity: IconCarouselCellEntity) {
         self.entity = entity
     }
-    
     
     // MARK: - Computed Properties
     
@@ -35,5 +33,9 @@ final class IconCarouselCellModel {
     
     var iconImage: UIImage? {
         return UIImage(named: entity.iconName)
+    }
+    
+    var textLabelText: String {
+        return entity.text
     }
 }

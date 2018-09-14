@@ -10,7 +10,12 @@ import UIKit
 
 class AdCarouselCell: UICollectionViewCell, NibLoadable {
 
-    @IBOutlet weak var captionLabel: UILabel!
+    @IBOutlet weak var captionLabel: UILabel! {
+        didSet {
+            captionLabel.textColor = .white
+            captionLabel.font = .boldSystemFont(ofSize: 16)
+        }
+    }
     
     @IBOutlet weak var imageView: UIImageView! { didSet {
         imageView.contentMode = .scaleAspectFill
